@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="sr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Početna - Alu-DAS</title>
+        <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/footer.css">
+        <link rel="stylesheet" href="css/home.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+    
+<body>
+    <header>
+        <img src="images/aludas_logo.jpg" alt="Logo Alu-DAS" class="logo">
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Početna</a></li>
+                <li><a href="about.html">O nama</a></li>
+                <li><a href="products.html">Proizvodi</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="slideshow-container">
+                <div class="mySlides fade" style="background-image: url('images/index_slider/IMG_0328.jpeg');"></div>
+                <div class="mySlides fade" style="background-image: url('images/index_slider/IMG_0605.jpeg');"></div>
+                <div class="mySlides fade" style="background-image: url('images/index_slider/IMG_9539.jpeg');"></div>
+            </div>
+            <div class="hero-content">
+                <h1>Dobrodošli u Alu-DAS</h1>
+                <p>Specijalisti za aluminijumsku i PVC stolariju visokog kvaliteta.</p>
+                <button onclick="location.href='about.html'">Saznajte više</button>
+            </div>
+        </section>
+
+        <section id="features">
+            <div class="head-feature">
+                <h2>Zašto odabrati Alu-DAS?</h2>
+            </div>
+            <div class="feature-content">
+                <div class="feature">
+                    <img src="images/index_pictures/quality.webp" alt="Visok kvalitet" class="feature-image">
+                    <h3>Visok kvalitet</h3>
+                    <p>Koristimo samo najbolje materijale, garantujući dugovečnost i performanse.</p>
+                </div>
+                <div class="feature">
+                    <img src="images/index_pictures/service.webp" alt="Odlična usluga" class="feature-image">
+                    <h3>Odlična usluga</h3>
+                    <p>Posvećeni smo izvrsnoj usluzi i podršci našim klijentima.</p>
+                </div>
+                <div class="feature">
+                    <img src="images/index_pictures/custom.webp" alt="Prilagođeni dizajn" class="feature-image">
+                    <h3>Prilagođeni dizajn</h3>
+                    <p>Nudimo rešenja prilagođena vašim specifičnim potrebama i željama.</p>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </section>
+
+        <section id="production-process">
+            <div class="head-production">
+                <h2>Proces proizvodnje i montaže</h2>
+            </div>
+            <div class="process-video">
+                <video controls>
+                    <source src="videos/proces.mp4" type="video/mp4">
+                    Vaš pregledač ne podržava video tag.
+                </video>
+            </div>
+        </section>
+        
+        
+
+        <section id="call-to-action">
+            <h2>Spremni za unapređenje vašeg doma ili poslovnog prostora?</h2>
+            <button onclick="location.href='contact.html'">Kontaktirajte nas</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Alu-DAS. Sva prava zadržana.</p>
+        <p>
+            <a href="mailto:info@aludas.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.instagram.com/stolarija_alu_das?igsh=N2lvaGxramx1Y3Bi" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="viber://chat?number=+381644424971"><i class="fab fa-viber"></i></a>
+        </p>
+    </footer>
+    
+    
+
+    <script src="js/slideshow.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+/* about.css */
+
+#about {
+    padding: 50px;
+    background-image: url('/images/about_images/IMG_5574.JPG');
+    background-size: cover;
+    background-position: center;
+    color: #333; /* Promenjena boja teksta za bolju vidljivost */
+    border-radius: 2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: center; /* Centralizacija teksta */
+}
+
+#about h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333; /* Boja naslova */
+}
+
+.card {
+    background-color: rgba(0, 0, 0, 0.5); /* Blago providna siva pozadina za bolju čitljivost */
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    border-radius: 2em;
+    text-align: center; /* Centralizacija teksta */
+}
+
+#about p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: white;
+}
+
+#about button {
+    background-color: #024959; /* Tamno zelena boja */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 2em;
+    display: inline-block;
+    margin: 0 auto; /* Centralizacija dugmeta */
+}
+
+/* Media queries za mobilne uređaje */
+@media only screen and (max-width: 768px) {
+    #about {
+        padding: 20px;
+    }
+
+    #about h1 {
+        font-size: 2em;
+    }
+
+    .card {
+        padding: 10px;
+    }
+
+    #about p, #about button {
+        font-size: 1em;
+        margin-bottom: 15px; /* Adjust margin for smaller screens */
+    }
+
+    #about button {
+        padding: 8px 16px;
+    }
+}
+
+img, video {
+    max-width: 100%;
+    height: auto;
+}

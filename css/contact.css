@@ -1,0 +1,56 @@
+/* contact.css */
+body.contact-page {
+    background-image: url('/images/contact_images/contact_background_adj.webp');
+    background-color: lightgray;
+    background-size: cover;
+    border-radius: 3em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-info {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 20px;
+    margin: auto;
+    max-width: 800px;
+    border-radius: 2em;
+    text-align: center;
+    line-height: 1.8;
+}
+
+.contact-info p, .contact-info h1, .contact-info h3 {
+    margin-bottom: 15px;
+}
+
+.contact-links i {
+    font-size: 2em;
+    margin-right: 15px;
+    color: white;
+}
+
+/* contact.css */
+
+/* Media queries za mobilne uređaje */
+@media only screen and (max-width: 768px) {
+    .contact-info {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    .contact-links i {
+        font-size: 1.5em;
+        margin-right: 10px;
+    }
+}
+
+img, video {
+    max-width: 100%;
+    height: auto;
+}

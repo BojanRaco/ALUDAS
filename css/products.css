@@ -1,0 +1,297 @@
+/* products.css */
+
+/* Osnovni CSS reset za products stranu */
+body.products-page {
+    background-color: white;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+
+footer {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    flex-grow: 1;
+}
+
+.slider-section {
+    display: none;
+    width: 100%;
+    height: auto;
+    position: relative;
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+    z-index: 1;
+}
+
+.slider-section.active {
+    display: flex;
+    flex-direction: row;
+    opacity: 1;
+    z-index: 2;
+}
+
+.slider-picture {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+    height: auto;
+}
+
+.grid-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2em;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 15em; /* Postavlja visinu slika na 15em */
+    object-fit: cover;
+    border-radius: 2em;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.slider-description {
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    height: auto;
+}
+
+.slider-nav {
+    width: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-nav button {
+    background-color: #013f50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.slider-nav button:hover {
+    background-color: #024959;
+}
+
+.description {
+    width: 90%;
+    text-align: center;
+    padding: 20px;
+    background-color: #013f50;
+    color: white;
+    border-radius: 2em;
+}
+
+.description p {
+    margin: 0;
+    padding: 0 20px;
+}
+
+#call-to-action {
+    background-color: #013f50;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    margin-top: 1em;
+    border-top-left-radius: 2em;
+    border-top-right-radius: 2em;
+    height: auto;
+}
+
+#call-to-action h2 {
+    margin-bottom: 0;
+    padding: 0;
+}
+
+#call-to-action button {
+    background-color: #024959;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 2em;
+}
+
+#call-to-action button:hover {
+    background-color: #013f50;
+}
+
+/* Media queries za mobilne uređaje */
+@media only screen and (max-width: 768px) {
+    .slider-container {
+        height: auto;
+        flex-direction: column;
+        margin-top: 1em;
+    }
+
+    .slider-section.active {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .slider-picture {
+        width: 100%;
+        height: 65%; /* Postavlja visinu na 65% visine slider container */
+    }
+
+    .slider-description {
+        width: 100%;
+        height: auto;
+        order: 2; /* Postavlja slider description ispod slider picture */
+    }
+
+    .slider-nav {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between; /* Razmešta strelice levo i desno */
+    }
+
+    .slider-nav.prev, .slider-nav.next {
+        width: auto;
+    }
+
+    .slider-nav button {
+        font-size: 20px;
+        padding: 5px;
+    }
+
+    .image-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 10px;
+        width: 100%;
+        height: 65vw; /* Postavlja visinu na istu kao širinu */
+    }
+
+    .grid-item img {
+        height: 100%; /* Postavlja visinu slika */
+    }
+
+    .slider-description .description {
+        padding: 10px;
+    }
+
+    #call-to-action {
+        margin-top: 1em;
+        height: auto;
+    }
+
+    footer {
+        height: auto;
+    }
+}
+
+/* Media queries za velike ekrane */
+@media only screen and (min-width: 769px) {
+    .slider-container {
+        flex-direction: row;
+        margin-top: 1em;
+        margin-left: 1em;
+    }
+
+    .slider-section {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .slider-picture {
+        width: 60%;
+        height: auto;
+    }
+
+    .slider-description {
+        width: 40%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .slider-description .description {
+        padding: 20px;
+    }
+
+    .image-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Stilovi za uvećane slike */
+.expanded-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    border-radius: 2em;
+}
+
+.expanded-image img {
+    max-width: 90%;
+    max-height: 41em;
+    border-radius: 2em;
+    margin-left: 2.5em;
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+.expanded-image .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+}

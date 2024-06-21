@@ -1,0 +1,41 @@
+/* footer.css */
+footer {
+    background-color: #013f50; /* Nova boja */
+    color: #fff; /* Bela boja za tekst */
+    text-align: center;
+    padding: 10px 0;
+    margin: 0; /* Uklanjanje margina */
+    border: 0; /* Uklanjanje granica */
+    border-radius: 2em;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: #fff; /* Bela boja za linkove */
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1.5em; /* Veličina ikona */
+}
+
+footer a:hover {
+    text-decoration: none;
+}
+
+footer i {
+    margin: 0 5px;
+}
+/* footer.css */
+
+/* Media queries za manje ekrane */
+@media only screen and (max-width: 768px) {
+    footer {
+        flex-direction: row; /* Osiguravanje da elementi ostanu u istom redu */
+    }
+
+    footer p, footer a {
+        margin: 5px;
+    }
+}

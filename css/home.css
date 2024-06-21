@@ -1,0 +1,299 @@
+/* home.css */
+body, h1, h2, h3, p, ul, li, nav, section, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333; /* Osnovna boja teksta */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #013f50; /* Nova boja */
+    color: #fff; /* Bela boja za tekst */
+    padding: 8px 20px;
+    text-align: center;
+    margin: 0; /* Uklanjanje margina */
+    border: 0; /* Uklanjanje granica */
+}
+
+header, main, footer {
+    display: block;
+}
+
+.logo {
+    height: auto;
+    width: 100%;
+    max-width: 100px;
+    border-radius: 20%;
+}
+
+nav ul {
+    list-style: none;
+    padding: 10px;
+    margin: 0; /* Uklanjanje margina */
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a.active, nav ul li a:hover {
+    text-decoration: underline;
+}
+
+main {
+    flex: 1;
+    padding: 0; /* Uklanjanje paddinga */
+    margin: 0; /* Uklanjanje margina */
+}
+
+#hero {
+    position: relative;
+    text-align: center;
+    color: white;
+    margin: 0; /* Uklanjanje margina */
+    padding: 0; /* Uklanjanje paddinga */
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    height: 70vh;
+    overflow: hidden;
+    border-radius: 2em;
+    margin-top: 1em;
+}
+
+.mySlides {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from { opacity: .4; }
+    to { opacity: 1; }
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 2em;
+}
+
+.hero-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.hero-content button {
+    background-color: #024959; /* Tamno zelena boja */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 2em;
+}
+
+.hero-content button:hover {
+    background-color: #013f50;
+}
+
+#features, #production-process {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    width: 100%;
+    min-height: 400px; /* Ista minimalna visina za obe sekcije */
+    margin: 1em;
+    padding: 0;
+    align-items: stretch; /* Obezbeđuje istu visinu za obe sekcije */
+}
+
+.head-feature, .head-production {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.feature-content, .process-video {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.feature {
+    max-width: 300px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.feature-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 0;
+    padding: 0;
+    border-radius: 2em;
+}
+
+.process-video {
+    display: flex;
+    justify-content: center; /* Horizontalno centriranje */
+    align-items: center; /* Vertikalno centriranje */
+    width: 100%; /* Postavljanje željene širine */
+    height: 400px; /* Postavljanje željene visine */
+    padding: 20px; /* Dodavanje paddinga ako je potrebno */
+    box-sizing: border-box; /* Uključuje padding i border u ukupnu dimenziju */
+}
+
+
+.process-video video {
+    width: 100%;
+    height: 100%; /* Obezbeđuje da video zauzme celu visinu roditeljskog elementa */
+    border-radius: 2em;
+    object-fit: contain; /* Osigurava da video ispuni raspoloživi prostor */
+}
+
+#call-to-action {
+    background-color: #013f50; /* Nova boja */
+    color: #fff; /* Bela boja za tekst */
+    text-align: center;
+    padding: 20px;
+    margin: 0; /* Uklanjanje margina */
+    border-top-left-radius: 2em;
+    border-top-right-radius: 2em;
+}
+
+#call-to-action h2 {
+    margin-bottom: 0;
+    padding: 0;
+}
+
+#call-to-action button {
+    background-color: #024959; /* Tamno zelena boja */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 2em;
+}
+
+#call-to-action button:hover {
+    background-color: #013f50;
+}
+
+footer {
+    background-color: #013f50; /* Nova boja */
+    color: #fff; /* Bela boja za tekst */
+    text-align: center;
+    padding: 10px 0;
+    margin: 0; /* Uklanjanje margina */
+    border: 0; /* Uklanjanje granica */
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+footer p {
+    margin: 0;
+    padding: 0;
+}
+
+footer a {
+    color: #fff; /* Bela boja za linkove */
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1.5em; /* Veličina ikona */
+}
+
+footer a:hover {
+    text-decoration: none;
+}
+
+footer i {
+    margin: 0 5px;
+    padding: 0;
+}
+
+@media (min-width: 768px) {
+    .logo {
+        max-width: 200px;
+    }
+
+    nav ul {
+        padding: 20px;
+    }
+}
+
+/* home.css */
+
+/* Media queries za mobilne uređaje */
+@media only screen and (max-width: 768px) {
+    .hero-content {
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    #features, #production-process {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .feature-content, .process-video {
+        padding: 20px;
+    }
+
+    .feature, .feature-image, .process-video video {
+        width: 100%;
+    }
+
+    .feature-content img, .process-video video {
+        border-radius: 10px;
+    }
+}
+
+img, video {
+    max-width: 100%;
+    height: auto;
+}
