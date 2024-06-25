@@ -22,6 +22,9 @@ document.addEventListener("DOMContentLoaded", function() {
         video.currentTime = 0; // Vraća video na početak
         video.play(); // Pokreće video ponovo
     });
+
+    // Prikaži hero-content na 5 sekundi svaki put kada se dodje na index stranu
+    showHeroContent();
 });
 
 function highlightActiveLink() {
@@ -54,4 +57,15 @@ function showWelcomeMessage() {
     setTimeout(() => {
         message.style.display = 'none';
     }, 5000);
+}
+
+function showHeroContent() {
+    const heroContent = document.querySelector('.hero-content');
+    if (heroContent) {
+        heroContent.style.display = 'block'; // Prikazuj hero-content
+
+        setTimeout(() => {
+            heroContent.style.display = 'none'; // Sakrij nakon 5 sekundi
+        }, 5000);
+    }
 }
