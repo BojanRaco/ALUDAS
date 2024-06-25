@@ -41,62 +41,8 @@ main {
     }
 }
 
-@media(max-width: 768px) {
-    #features {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .feature {
-        flex-basis: 100%;
-    }
-
-    .product-item {
-        flex: 1 1 100%;
-    }
-}
-
 @media (min-width: 768px) and (max-width: 1200px) {
     .product-item {
         flex: 1 1 50%;
-    }
-}
-
-@media (max-width: 768px) {
-    .product-item {
-        flex: 1 1 100%;
-    }
-}
-
-/* base.css */
-
-/* Media queries za mobilne uređaje */
-@media only screen and (max-width: 768px) {
-    body {
-        font-size: 14px;
-    }
-
-    .contact-info, .feature, .product-item, .slider-section, .slider-description, .image-grid {
-        width: 100%;
-        padding: 0;
-        margin: 0;
-    }
-
-    .hero-content, .feature-content, .process-video, .slider-description {
-        flex-direction: column;
-        align-items: center;
-        padding: 10px;
-    }
-
-    .feature, .product-item {
-        max-width: 100%;
-    }
-    
-    .image-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .process-video video {
-        height: auto;
     }
 }

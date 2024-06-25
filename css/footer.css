@@ -27,15 +27,3 @@ footer a:hover {
 footer i {
     margin: 0 5px;
 }
-/* footer.css */
-
-/* Media queries za manje ekrane */
-@media only screen and (max-width: 768px) {
-    footer {
-        flex-direction: row; /* Osiguravanje da elementi ostanu u istom redu */
-    }
-
-    footer p, footer a {
-        margin: 5px;
-    }
-}

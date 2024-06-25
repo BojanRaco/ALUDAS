@@ -35,21 +35,6 @@ body.contact-page {
     color: white;
 }
 
-/* contact.css */
-
-/* Media queries za mobilne uređaje */
-@media only screen and (max-width: 768px) {
-    .contact-info {
-        width: 90%;
-        margin: 10px auto;
-    }
-
-    .contact-links i {
-        font-size: 1.5em;
-        margin-right: 10px;
-    }
-}
-
 img, video {
     max-width: 100%;
     height: auto;

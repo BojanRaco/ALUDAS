@@ -187,7 +187,6 @@ main {
     box-sizing: border-box; /* Uključuje padding i border u ukupnu dimenziju */
 }
 
-
 .process-video video {
     width: 100%;
     height: 100%; /* Obezbeđuje da video zauzme celu visinu roditeljskog elementa */
@@ -263,33 +262,6 @@ footer i {
 
     nav ul {
         padding: 20px;
-    }
-}
-
-/* home.css */
-
-/* Media queries za mobilne uređaje */
-@media only screen and (max-width: 768px) {
-    .hero-content {
-        padding: 20px;
-        border-radius: 10px;
-    }
-
-    #features, #production-process {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .feature-content, .process-video {
-        padding: 20px;
-    }
-
-    .feature, .feature-image, .process-video video {
-        width: 100%;
-    }
-
-    .feature-content img, .process-video video {
-        border-radius: 10px;
     }
 }
 
