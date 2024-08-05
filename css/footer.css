@@ -20,6 +20,22 @@ footer a {
     font-size: 1.5em; /* Veličina ikona */
 }
 
+footer .fa-phone{
+    color: green;
+}
+
+footer .fa-envelope{
+    color: lightblue;
+}
+
+footer .fa-instagram{
+    color: #c13584;
+}
+
+footer .fa-viber{
+    color: #665cac;
+}
+
 footer a:hover {
     text-decoration: none;
 }

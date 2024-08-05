@@ -1,4 +1,25 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Dinamičko učitavanje slika iz images.json fajla za contact stranu
+    fetch('images.json')
+        .then(response => response.json())
+        .then(data => {
+            const contactImages = data.contact_images;
+            const galleryWrapper = document.querySelector('.contact-gallery-wrapper');
+            if (galleryWrapper) {
+                contactImages.forEach(image => {
+                    const imgElement = document.createElement('img');
+                    imgElement.src = image.src;
+                    imgElement.alt = image.alt;
+                    imgElement.loading = "lazy";
+                    imgElement.classList.add('contact-gallery-item');
+                    imgElement.style.width = "100%";
+                    imgElement.style.height = "auto";
+                    galleryWrapper.appendChild(imgElement);
+                });
+            }
+        })
+        .catch(error => console.error('Error loading images:', error));
+
     const contactForm = document.getElementById('contactForm');
     
     contactForm.addEventListener('submit', function(event) {

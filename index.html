@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="sr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Početna - Alu-DAS</title>
-        <link rel="stylesheet" href="css/base.css">
-        <link rel="stylesheet" href="css/header.css">
-        <link rel="stylesheet" href="css/footer.css">
-        <link rel="stylesheet" href="css/home.css">
-        <link rel="stylesheet" href="css/responcive.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    </head>
-    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Početna - Alu-DAS</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
 <body>
     <header>
         <img src="images/aludas_logo.jpg" alt="Logo Alu-DAS" class="logo">
@@ -27,11 +26,18 @@
 
     <main>
         <section id="hero">
-            <div class="slideshow-container">
-                <div class="mySlides fade" style="background-image: url('images/index_slider/IMG_0328.jpeg');"></div>
-                <div class="mySlides fade" style="background-image: url('images/index_slider/IMG_0605.jpeg');"></div>
-                <div class="mySlides fade" style="background-image: url('images/index_slider/IMG_9539.jpeg');"></div>
-            </div>
+            <div class="slider-wrapper">
+                <div class="slider-container">
+                    <!-- Slike će biti dinamički učitane ovde -->
+                </div>
+                <div class="slider-nav">
+                    <button class="prev">&#10094;</button>
+                    <button class="next">&#10095;</button>
+                </div>
+                <div class="slider-indicators">
+                    <!-- Indikatori će biti dinamički dodani ovde -->
+                </div>
+            </div>                        
             <div class="hero-content" style="display: none;">
                 <h1>Dobrodošli u Alu-DAS</h1>
                 <p>Specijalisti za aluminijumsku i PVC stolariju visokog kvaliteta.</p>
@@ -75,8 +81,6 @@
             </div>
         </section>
         
-        
-
         <section id="call-to-action">
             <h2>Spremni za unapređenje vašeg doma ili poslovnog prostora?</h2>
             <button onclick="location.href='contact.html'">Kontaktirajte nas</button>
@@ -86,15 +90,14 @@
     <footer>
         <p>&copy; 2024 Alu-DAS. Sva prava zadržana.</p>
         <p>
+            <a href="tel:+381644424971"><i class="fas fa-phone phone-icon"></i></a>
             <a href="mailto:info@aludas.com"><i class="fas fa-envelope"></i></a>
             <a href="https://www.instagram.com/stolarija_alu_das?igsh=N2lvaGxramx1Y3Bi" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="viber://chat?number=+381644424971"><i class="fab fa-viber"></i></a>
         </p>
     </footer>
     
-    
-
-    <script src="js/slideshow.js"></script>
+    <script src="js/carousel.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

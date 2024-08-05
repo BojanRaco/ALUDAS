@@ -1,17 +1,23 @@
-/* contact.css */
 body.contact-page {
-    background-image: url('/images/contact_images/contact_background_adj.webp');
     background-color: lightgray;
-    background-size: cover;
-    border-radius: 3em;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    min-height: 100vh;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    background-image: url('/images/contact_images/contact_background_adj.webp'); /* Putanja do tvoje pozadinske slike */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    flex: 1;
+    padding: 20px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border-radius: 2em; /* Zaobljenje krajeva pozadinske slike */
 }
 
 .contact-info {
@@ -35,7 +41,65 @@ body.contact-page {
     color: white;
 }
 
+.contact-links .fa-phone{
+    color: green;
+}
+
+.contact-links .fa-envelope{
+    color: lightblue;
+}
+
+.contact-links .fa-instagram{
+    color: #c13584;
+}
+
+.contact-links .fa-viber{
+    color: #665cac;
+}
+
+.contact-info p:nth-of-type(4) i {
+    color: red;
+}
+
+.contact-info p:nth-of-type(5) i {
+    color: green;
+}
+
+.contact-info p:nth-of-type(6) i {
+    color: yellow;
+}
+
+.contact-info a {
+    color: white;
+}
+
 img, video {
     max-width: 100%;
     height: auto;
+}
+
+/* Stilovi za manje ekrane */
+@media (max-width: 768px) {
+    .contact-info {
+        padding: 10px;
+        margin: 10px;
+        font-size: 1em;
+    }
+
+    .contact-links i {
+        font-size: 1.5em;
+        margin-right: 10px;
+    }
+
+    .contact-info h1 {
+        font-size: 1.5em;
+    }
+
+    .contact-info h3 {
+        font-size: 1em;
+    }
+
+    .contact-info p {
+        font-size: 0.9em;
+    }
 }

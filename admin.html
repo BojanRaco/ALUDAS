@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Alu-DAS</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Panel</h1>
+        <form id="imageUploadForm" enctype="multipart/form-data">
+            <label for="section">Izaberi sekciju:</label>
+            <select id="section" name="section">
+                <option value="index_slider">Index Slider</option>
+                <option value="about_images">O nama Slike</option>
+                <option value="contact_images">Kontakt Slike</option>
+                <option value="product_images/prozori">Prozori</option>
+                <option value="product_images/vrata">Vrata</option>
+                <option value="product_images/izlozi_terase">Izlozi i Terase</option>
+                <option value="product_images/ostalo">Ostalo</option>
+            </select>
+            <label for="image">Uploaduj Sliku:</label>
+            <input type="file" id="image" name="image" accept="image/*">
+            <button type="submit">Uploaduj</button>
+        </form>
+        <hr>
+        <form id="imageDeleteForm">
+            <label for="sectionDelete">Izaberi sekciju:</label>
+            <select id="sectionDelete" name="sectionDelete">
+                <option value="index_slider">Index Slider</option>
+                <option value="about_images">O nama Slike</option>
+                <option value="contact_images">Kontakt Slike</option>
+                <option value="product_images/prozori">Prozori</option>
+                <option value="product_images/vrata">Vrata</option>
+                <option value="product_images/izlozi_terase">Izlozi i Terase</option>
+                <option value="product_images/ostalo">Ostalo</option>
+            </select>
+            <label for="imageName">Izaberi sliku:</label>
+            <select id="imageName" name="imageName">
+                <!-- Slike će biti dinamički učitane ovde -->
+            </select>
+            <button type="submit">Obriši</button>
+        </form>
+        <div id="message"></div>
+    </div>
+    <script src="js/admin.js"></script>
+</body>
+</html>

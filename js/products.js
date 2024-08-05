@@ -1,39 +1,30 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const gridItems = document.querySelectorAll('.grid-item img');
-    let expanded = false;
-    let expandedIndex = 0;
-    let expandedImages;
-
-    gridItems.forEach((item, index) => {
-        item.addEventListener('click', (e) => {
-            const sliderPicture = e.target.closest('.slider-picture');
-            const expandedImage = document.createElement('div');
-            expandedImage.classList.add('expanded-image');
-            expandedImage.innerHTML = `
-                <div class="image-wrapper">
-                    <img src="${e.target.src}" alt="${e.target.alt}">
-                    <div class="close-btn">&times;</div>
-                </div>
-            `;
-            sliderPicture.appendChild(expandedImage);
-            expanded = true;
-            expandedIndex = index;
-            expandedImages = sliderPicture.querySelectorAll('.grid-item img');
-
-            const closeBtn = expandedImage.querySelector('.close-btn');
-            closeBtn.addEventListener('click', () => {
-                sliderPicture.removeChild(expandedImage);
-                expanded = false;
+    // Dinamičko učitavanje slika iz images.json fajla
+    fetch('images.json')
+        .then(response => response.json())
+        .then(data => {
+            // Učitavanje slika za products sekciju
+            Object.keys(data.product_images).forEach(category => {
+                const sliderSection = document.getElementById(`slider-section-${category}`);
+                if (sliderSection) {
+                    const galleryWrapper = sliderSection.querySelector('.gallery-wrapper');
+                    
+                    data.product_images[category].forEach(image => {
+                        const imgElement = document.createElement('img');
+                        imgElement.src = image.src;
+                        imgElement.alt = image.alt;
+                        imgElement.loading = "lazy";
+                        imgElement.classList.add('grid-item'); // Dodaj klasu za pregled slika
+                        galleryWrapper.appendChild(imgElement);
+                    });
+                }
             });
 
-            expandedImage.addEventListener('click', (event) => {
-                if (event.target.classList.contains('close-btn')) return;
-                expandedIndex = (expandedIndex + 1) % expandedImages.length;
-                const newImageSrc = expandedImages[expandedIndex].src;
-                expandedImage.querySelector('img').src = newImageSrc;
-            });
-        });
-    });
+            // Aktiviraj funkcionalnosti za pregled slika nakon dinamičkog učitavanja
+            activateImagePreview();
+            showSlides(slideIndex);
+        })
+        .catch(error => console.error('Error loading images:', error));
 
     let slideIndex = 0;
 
@@ -62,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function showImageGrid() {
         const activeSlide = document.querySelector(".slider-section.active");
         if (!activeSlide) return; // Provera da li postoji aktivni slide
-        const images = activeSlide.querySelectorAll(".grid-item img");
+        const images = activeSlide.querySelectorAll(".grid-item");
         const imageGrid = activeSlide.querySelector(".image-grid");
 
         if (imageGrid) {
@@ -82,28 +73,143 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelectorAll(".prev").forEach(prevBtn => {
         prevBtn.addEventListener("click", () => {
-            if (expanded) {
-                expandedIndex = (expandedIndex - 1 + expandedImages.length) % expandedImages.length;
-                const newImageSrc = expandedImages[expandedIndex].src;
-                document.querySelector('.expanded-image img').src = newImageSrc;
-            } else {
-                setSlide(slideIndex - 1);
-            }
+            setSlide(slideIndex - 1);
         });
     });
 
     document.querySelectorAll(".next").forEach(nextBtn => {
         nextBtn.addEventListener("click", () => {
-            if (expanded) {
-                expandedIndex = (expandedIndex + 1) % expandedImages.length;
-                const newImageSrc = expandedImages[expandedIndex].src;
-                document.querySelector('.expanded-image img').src = newImageSrc;
-            } else {
-                setSlide(slideIndex + 1);
-            }
+            setSlide(slideIndex + 1);
         });
     });
+
+    // Aktiviraj funkcionalnosti za pregled slika
+    function activateImagePreview() {
+        const gridItems = document.querySelectorAll('.grid-item');
+        gridItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                let expandedImageIndex = index;
+                const sliderPicture = item.closest('.slider-picture');
+                const imageGrid = sliderPicture.querySelector('.image-grid');
+                const gridImages = imageGrid.querySelectorAll('.grid-item');
+                const expandedImage = document.createElement('div');
+                expandedImage.classList.add('expanded-image');
+                expandedImage.innerHTML = `
+                    <div class="image-wrapper">
+                        <img src="${item.src}" alt="${item.alt}">
+                        <div class="close-btn">&times;</div>
+                    </div>
+                `;
+                expandedImage.style.position = 'absolute';
+                expandedImage.style.top = '0';
+                expandedImage.style.left = '0';
+                expandedImage.style.width = '100%';
+                expandedImage.style.height = '100%';
+                expandedImage.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+                expandedImage.style.display = 'flex';
+                expandedImage.style.justifyContent = 'center';
+                expandedImage.style.alignItems = 'center';
+                expandedImage.style.zIndex = '1000';
+
+                const imgWrapper = expandedImage.querySelector('.image-wrapper');
+                imgWrapper.style.position = 'relative';
+
+                const img = expandedImage.querySelector('img');
+                img.style.maxWidth = '90%';
+                img.style.maxHeight = '90%';
+
+                imageGrid.appendChild(expandedImage);
+
+                const closeBtn = expandedImage.querySelector('.close-btn');
+                closeBtn.style.position = 'absolute';
+                closeBtn.style.top = '10px';
+                closeBtn.style.right = '10px';
+                closeBtn.style.color = '#fff';
+                closeBtn.style.fontSize = '24px';
+                closeBtn.style.cursor = 'pointer';
+
+                closeBtn.addEventListener('click', () => {
+                    imageGrid.removeChild(expandedImage);
+                });
+
+                // Dodavanje navigacije između slika
+                addImageNavigation(expandedImage, gridImages, expandedImageIndex);
+
+                // Dodavanje podrške za prevlačenje prstom
+                addSwipeSupport(expandedImage, gridImages, expandedImageIndex);
+            });
+        });
+    }
 
     // Initialize the first slide
     setSlide(0);
 });
+
+// Funkcija za navigaciju između slika
+function addImageNavigation(expandedImage, gridItems, expandedImageIndex) {
+    const img = expandedImage.querySelector('img');
+    
+    const prevBtn = document.createElement('div');
+    prevBtn.classList.add('nav-btn', 'prev-btn');
+    prevBtn.innerHTML = '&#10094;';
+    prevBtn.style.position = 'absolute';
+    prevBtn.style.top = '50%';
+    prevBtn.style.left = '10px';
+    prevBtn.style.color = '#fff';
+    prevBtn.style.fontSize = '24px';
+    prevBtn.style.cursor = 'pointer';
+    prevBtn.style.transform = 'translateY(-50%)';
+    
+    const nextBtn = document.createElement('div');
+    nextBtn.classList.add('nav-btn', 'next-btn');
+    nextBtn.innerHTML = '&#10095;';
+    nextBtn.style.position = 'absolute';
+    nextBtn.style.top = '50%';
+    nextBtn.style.right = '10px';
+    nextBtn.style.color = '#fff';
+    nextBtn.style.fontSize = '24px';
+    nextBtn.style.cursor = 'pointer';
+    nextBtn.style.transform = 'translateY(-50%)';
+
+    expandedImage.appendChild(prevBtn);
+    expandedImage.appendChild(nextBtn);
+
+    prevBtn.addEventListener('click', () => {
+        expandedImageIndex = (expandedImageIndex - 1 + gridItems.length) % gridItems.length;
+        const prevImg = gridItems[expandedImageIndex];
+        img.src = prevImg.src;
+        img.alt = prevImg.alt;
+    });
+
+    nextBtn.addEventListener('click', () => {
+        expandedImageIndex = (expandedImageIndex + 1) % gridItems.length;
+        const nextImg = gridItems[expandedImageIndex];
+        img.src = nextImg.src;
+        img.alt = nextImg.alt;
+    });
+}
+
+// Funkcija za podršku prevlačenja prstom
+function addSwipeSupport(expandedImage, gridItems, expandedImageIndex) {
+    let startX = 0;
+    let endX = 0;
+
+    expandedImage.addEventListener('touchstart', (e) => {
+        startX = e.changedTouches[0].screenX;
+    });
+
+    expandedImage.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].screenX;
+        if (startX > endX + 50) {
+            // Swipe left
+            expandedImageIndex = (expandedImageIndex + 1) % gridItems.length;
+        } else if (startX < endX - 50) {
+            // Swipe right
+            expandedImageIndex = (expandedImageIndex - 1 + gridItems.length) % gridItems.length;
+        }
+        const img = expandedImage.querySelector('img');
+        const newImg = gridItems[expandedImageIndex];
+        img.src = newImg.src;
+        img.alt = newImg.alt;
+    });
+}
