@@ -4,15 +4,15 @@ const sharp = require('sharp');
 
 // Direktorijumi sa slikama
 const directories = {
-    about_images: 'public/images/about_images',
-    contact_images: 'public/images/contact_images',
-    index_pictures: 'public/images/index_pictures',
-    index_slider: 'public/images/index_slider',
+    about_images: 'docs/images/about_images',
+    contact_images: 'docs/images/contact_images',
+    index_pictures: 'docs/images/index_pictures',
+    index_slider: 'docs/images/index_slider',
     product_images: {
-        izlozi_terase: 'public/images/product_images/izlozi_terase',
-        ostalo: 'public/images/product_images/ostalo',
-        prozori: 'public/images/product_images/prozori',
-        vrata: 'public/images/product_images/vrata'
+        izlozi_terase: 'docs/images/product_images/izlozi_terase',
+        ostalo: 'docs/images/product_images/ostalo',
+        prozori: 'docs/images/product_images/prozori',
+        vrata: 'docs/images/product_images/vrata'
     }
 };
 
