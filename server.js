@@ -9,14 +9,15 @@ const sharp = require('sharp');
 const { generateImagesJson } = require('./generateImagesJson'); // Importovanje funkcije
 
 const app = express();
-const port = 3000;
+const port = 3001; // Promenjen port na 3001
 
 // Dummy user data for demonstration purposes
 const users = [
-    { id: 1, username: 'admin', password: '$2b$10$f2SWxt1i370lBaaJAlfB5ePBiNbdOuCm7h3nyDcoZqn21CNBe.wBi' } // replace with actual hashed password
+    { id: 1, username: 'admin', password: '$2b$10$HfAZ4/NK0EiOVv/Phsqfl.haH/HLDNCG1DassthDm6hSp9bs0N11W' }
 ];
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(session({
     secret: 'your-secret-key',
     resave: false,
@@ -24,6 +25,11 @@ app.use(session({
 }));
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Ruta za posluživanje index.html na korenskom URL-u
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 // Ruta za prijavu
 app.post('/login', (req, res) => {
@@ -61,7 +67,7 @@ app.get('/admin.html', requireLogin, (req, res) => {
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
         const section = req.body.section;
-        const uploadPath = path.join(__dirname, 'images', section);
+        const uploadPath = path.join(__dirname, 'public/images', section);
         if (!fs.existsSync(uploadPath)) {
             fs.mkdirSync(uploadPath, { recursive: true });
         }
@@ -83,7 +89,7 @@ app.post('/upload_image', requireLogin, upload.single('image'), (req, res) => {
     }
 
     const inputFilePath = image.path;
-    const outputFilePath = path.join(__dirname, 'images', 'compressed_images', `${section}_${image.filename}.webp`);
+    const outputFilePath = path.join(__dirname, 'public/images/compressed_images', `${section}_${image.filename}.webp`);
 
     sharp(inputFilePath)
         .resize({
@@ -111,8 +117,8 @@ app.post('/delete_image', requireLogin, (req, res) => {
     const section = req.body.section;
     const imageName = req.body.imageName;
 
-    const imagePath = path.join(__dirname, 'images', section, imageName);
-    const compressedImagePath = path.join(__dirname, 'images', 'compressed_images', `${section}_${imageName}.webp`);
+    const imagePath = path.join(__dirname, 'public/images', section, imageName);
+    const compressedImagePath = path.join(__dirname, 'public/images/compressed_images', `${section}_${imageName}.webp`);
 
     console.log(`Trying to delete image: ${imagePath}`);
 
@@ -145,7 +151,29 @@ app.post('/delete_image', requireLogin, (req, res) => {
     });
 });
 
-// Pokrenite server
-app.listen(port, () => {
-    console.log(`Server pokrenut na http://localhost:${port}`);
+// Ruta za dobavljanje slika za odabranu sekciju
+app.get('/get_images', (req, res) => {
+    const section = req.query.section;
+    const imagesData = JSON.parse(fs.readFileSync(path.join('public', 'images.json')));
+
+    // Pronađimo slike za zadatu sekciju
+    const findSectionImages = (data, section) => {
+        if (section.includes('/')) {
+            const [mainSection, subSection] = section.split('/');
+            return data[mainSection][subSection] || [];
+        }
+        return data[section] || [];
+    };
+
+    const sectionPath = findSectionImages(imagesData, section);
+    res.json({ images: sectionPath });
+});
+
+// Pokrenite server nakon generisanja slika
+generateImagesJson().then(() => {
+    app.listen(port, () => {
+        console.log(`Server pokrenut na http://localhost:${port}`);
+    });
+}).catch(error => {
+    console.error('Greška pri generisanju slika:', error);
 });

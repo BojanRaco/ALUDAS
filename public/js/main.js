@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     loadIndexImages();
     initializeHeroContent();
     setupVideoAutoPlay();
+    setupLoginForm(); // Dodaj ovu liniju
 });
 
 function highlightActiveLink() {
@@ -132,4 +133,74 @@ function showNewHeroContent() {
         heroContent.classList.add('over-video');
         heroContent.style.display = 'flex';
     }
+}
+
+function setupLoginForm() {
+    const logo = document.getElementById('logo');
+    const loginForm = document.getElementById('loginForm');
+    const closeForm = document.getElementById('closeForm');
+    const loginButton = document.getElementById('loginButton');
+    const loginError = document.getElementById('loginError');
+
+    logo.addEventListener('dblclick', () => {
+        loginForm.style.display = loginForm.style.display === 'none' ? 'flex' : 'none';
+    });
+
+    closeForm.addEventListener('click', () => {
+        loginForm.style.display = 'none';
+    });
+
+    loginButton.addEventListener('click', () => {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        if (username.trim() === '' || password.trim() === '') {
+            loginError.style.display = 'block';
+        } else {
+            loginError.style.display = 'none';
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, password })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = '/admin.html';
+                } else {
+                    alert('Neuspešna prijava. Pokušajte ponovo.');
+                }
+            })
+            .catch(error => console.error('Greška prilikom prijave:', error));
+        }
+    });
+}
+document.addEventListener("DOMContentLoaded", function() {
+    highlightActiveLink();
+    setupSmoothScrolling();
+    showWelcomeMessage();
+    loadIndexImages();
+    initializeHeroContent();
+    setupVideoAutoPlay();
+    setupLoginForm(); 
+    loadBackgroundImages(); // Dodaj ovu liniju za dinamičko učitavanje pozadinskih slika
+});
+
+function loadBackgroundImages() {
+    fetch('images.json')
+        .then(response => response.json())
+        .then(data => {
+            // Učitaj pozadinsku sliku za about sekciju
+            if (data.about_images && data.about_images.length > 0) {
+                document.querySelector('#about').style.backgroundImage = `url('${data.about_images[0].src}')`;
+            }
+
+            // Učitaj pozadinsku sliku za contact sekciju
+            if (data.contact_images && data.contact_images.length > 0) {
+                document.querySelector('body.contact-page').style.backgroundImage = `url('${data.contact_images[0].src}')`;
+            }
+        })
+        .catch(error => console.error('Error loading background images:', error));
 }

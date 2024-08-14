@@ -13,17 +13,24 @@
 </head>
 <body>
     <header>
-        <img src="images/aludas_logo.jpg" alt="Logo Alu-DAS" class="logo">
+        <img src="images/aludas_logo.jpg" alt="Logo Alu-DAS" class="logo" id="logo">
         <nav>
             <ul>
-                <li><a href="index.html" class="active">Početna</a></li>
+                <li><a href="index.html">Početna</a></li>
                 <li><a href="about.html">O nama</a></li>
                 <li><a href="products.html">Proizvodi</a></li>
                 <li><a href="contact.html">Kontakt</a></li>
             </ul>
         </nav>
-    </header>
-
+        <form id="loginForm" style="display: none;">
+            <span id="closeForm">&times;</span>
+            <input type="text" id="username" placeholder="Korisničko ime" required>
+            <input type="password" id="password" placeholder="Lozinka" required>
+            <button type="button" id="loginButton">Prijavi se</button>
+            <p id="loginError" style="color: red; display: none;">Molimo popunite sva polja.</p>
+        </form>
+    </header>    
+    
     <main>
         <section id="hero">
             <div class="slider-wrapper">
@@ -90,10 +97,10 @@
     <footer>
         <p>&copy; 2024 Alu-DAS. Sva prava zadržana.</p>
         <p>
-            <a href="tel:+381644424971"><i class="fas fa-phone phone-icon"></i></a>
-            <a href="mailto:info@aludas.com"><i class="fas fa-envelope"></i></a>
-            <a href="https://www.instagram.com/stolarija_alu_das?igsh=N2lvaGxramx1Y3Bi" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="viber://chat?number=+381644424971"><i class="fab fa-viber"></i></a>
+            <a href="tel:+381644424971" aria-label="Pozovite nas"><i class="fas fa-phone phone-icon"></i></a>
+            <a href="mailto:info@aludas.com" aria-label="Posaljite nam email"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.instagram.com/stolarija_alu_das?igshid=N2lvaGxramx1Y3Bi" target="_blank" rel="noopener noreferrer" aria-label="Posetite naš Instagram profil"><i class="fab fa-instagram"></i></a>
+            <a href="viber://chat?number=+381644424971" aria-label="Chat preko Vibera"><i class="fab fa-viber"></i></a>
         </p>
     </footer>
     

@@ -20,9 +20,9 @@
                 <option value="product_images/izlozi_terase">Izlozi i Terase</option>
                 <option value="product_images/ostalo">Ostalo</option>
             </select>
-            <label for="image">Uploaduj Sliku:</label>
+            <label for="image">Odaberi fajl:</label>
             <input type="file" id="image" name="image" accept="image/*">
-            <button type="submit">Uploaduj</button>
+            <button type="submit">Postavi</button>
         </form>
         <hr>
         <form id="imageDeleteForm">
@@ -42,6 +42,12 @@
             </select>
             <button type="submit">Obriši</button>
         </form>
+
+        <!-- Dugme za povratak na sajt - centrirano -->
+        <div class="return-button-container">
+            <button class="return-button" onclick="window.location.href='/'">Povratak na sajt</button>
+        </div>
+
         <div id="message"></div>
     </div>
     <script src="js/admin.js"></script>

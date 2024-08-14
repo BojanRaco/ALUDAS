@@ -42,6 +42,36 @@
     .process-video video {
         height: auto;
     }
+    
+    /* Dodato pravilo za bolje usklađivanje prostora između elemenata */
+    .feature-content {
+        padding: 10px 0;
+    }
+
+    .feature-content .feature {
+        margin-bottom: 10px;
+    }
+
+    .feature-content img {
+        margin-bottom: 10px;
+    }
+
+    /* Hero content usklađivanje */
+    .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        padding: 10px;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .slider-container {
+        position: relative;
+        height: 50vh;
+    }
 }
 
 /* from header.css */
@@ -190,5 +220,12 @@
 
     .feature-content img, .process-video video {
         border-radius: 10px;
+    }
+}
+
+/* Dodato pravilo za sakrivanje strelica na touchscreen uređajima */
+@media (pointer: coarse), only screen and (max-width: 768px) {
+    .slider-nav.prev, .slider-nav.next {
+        display: none;
     }
 }
