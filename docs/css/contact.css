@@ -8,7 +8,7 @@ body.contact-page {
 }
 
 main {
-    background-image: url('/images/contact_images/contact_background_adj.webp'); /* Putanja do tvoje pozadinske slike */
+    background-image: url('images/compressed_images/contact_images_contact_background_adj.webp'); /* Putanja do tvoje pozadinske slike */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

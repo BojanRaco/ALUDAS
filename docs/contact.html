@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="sr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontakt - Alu-DAS</title>
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/contact.css">
-    <link rel="stylesheet" href="css/responcive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body class="contact-page">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Kontakt - Alu-DAS</title>
+        <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/footer.css">
+        <link rel="stylesheet" href="css/contact.css">
+        <link rel="stylesheet" href="css/responcive.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+
+<body>
     <header>
         <img src="images/aludas_logo.jpg" alt="Logo Alu-DAS" class="logo">
         <nav>
@@ -24,37 +25,29 @@
         </nav>
     </header>
 
-    <main>
-        
+    <main class="contact-page" style="background-image: url('images/compressed_images/contact_images_contact_background_adj.webp.webp');">
         <div class="contact-info">
-            <h1>Osnovni podaci o nama</h1>
-            <h3> "Alu-DAS"</h3>
-            <p> Maticni broj: 56031596</p>
-            <p> PIB 100192461</p>
-            <p>Tekuci racun 205-57740-13</p>
-            <p>
-                <a href="https://www.google.com/maps/place/Durmitorska+24,Kaluđerica,+Beograd,+Serbia" target="_blank" rel="noopener noreferrer">
-                    <i class="fas fa-map-marker-alt map-icon"></i> Durmitorska 24, Kaluđerica, Beograd
-                </a>                
-            </p>            
-            <p><i class="fas fa-phone"></i> 064/ 4424-971</p>
-            <p><i class="fas fa-clock"></i> Pon - Pet 09:00 - 17:00</p>
-            <h3>Ukoliko imate bilo kakva pitanja, trebaju vam dodatne informacije ili savet,</h3>
-            <h3> slobodno nam se obratite.</h3>
-            <div class="contact-links">
+            <h2>Kontaktirajte nas</h2>
+            <p><i class="fas fa-map-marker-alt"></i> Durmitorska 24, Kaluđerica, Beograd</p>
+            <p><i class="fas fa-phone"></i> <a href="tel:+381644424971">+381 64 442 4971</a></p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:info@aludas.com">info@aludas.com</a></p>
+            <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/stolarija_alu_das?igshid=N2lvaGxramx1Y3Bi" target="_blank" rel="noopener noreferrer">Instagram</a></p>
+        </div>
 
-                <!-- Phone link-->
-                <a href="tel:+381644424971" aria-label="Pozovite nas"><i class="fas fa-phone phone-icon"></i></a>
+        <div class="contact-form">
+            <h2>Pošaljite nam poruku</h2>
+            <form action="https://formspree.io/f/mjvqrknr" method="POST">
+                <label for="name">Vaše ime:</label>
+                <input type="text" id="name" name="name" required>
 
-                <!-- Email link -->
-                <a href="mailto:info@aludas.com" aria-label="Posaljite nam email"><i class="fas fa-envelope"></i></a>
-                
-                <!-- Instagram link -->
-                <a href="https://www.instagram.com/stolarija_alu_das?igshid=N2lvaGxramx1Y3Bi" target="_blank" rel="noopener noreferrer" aria-label="Posetite naš Instagram profil"><i class="fab fa-instagram"></i></a>
-                
-                <!-- Viber link -->
-                <a href="viber://chat?number=+381644424971" aria-label="Chat preko Vibera"><i class="fab fa-viber"></i></a>
-            </div>
+                <label for="email">Vaša email adresa:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Poruka:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Pošalji</button>
+            </form>
         </div>
     </main>
 
@@ -69,5 +62,6 @@
     </footer>
 
     <script src="js/contact.js"></script>
+    
 </body>
 </html>
