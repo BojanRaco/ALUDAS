@@ -9,7 +9,7 @@ body {
 .container {
     width: 50%;
     margin: 50px auto;
-    background: red; /* Tamnija nijansa za container, u skladu sa header bojom */
+    background-color: #024959; /* Tamnija nijansa za container, u skladu sa header bojom */
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow efekat */
     border-radius: 8px; /* Zaobljeni uglovi */
@@ -99,6 +99,31 @@ button:hover {
 #message {
     text-align: center;
     margin-top: 20px;
+}
+
+/* Stilovi za prikaz slika */
+#imagesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.image-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #013f50;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.image-wrapper img {
+    border-radius: 5px;
+}
+
+.image-checkbox {
+    margin-top: 5px;
 }
 
 /* Dugme za povratak na sajt - centrirano */

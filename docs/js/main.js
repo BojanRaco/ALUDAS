@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", function() {
     loadIndexImages();
     initializeHeroContent();
     setupVideoAutoPlay();
-    setupLoginForm(); // Dodaj ovu liniju
+    setupLoginForm();
+    loadBackgroundImages(); // Dodaj ovu liniju za dinamičko učitavanje pozadinskih slika
 });
 
 function highlightActiveLink() {
@@ -139,7 +140,6 @@ function setupLoginForm() {
     const logo = document.getElementById('logo');
     const loginForm = document.getElementById('loginForm');
     const closeForm = document.getElementById('closeForm');
-    const loginButton = document.getElementById('loginButton');
     const loginError = document.getElementById('loginError');
 
     logo.addEventListener('dblclick', () => {
@@ -150,7 +150,15 @@ function setupLoginForm() {
         loginForm.style.display = 'none';
     });
 
-    loginButton.addEventListener('click', () => {
+    // Omogućavanje slanja forme pritiskom na Enter
+    loginForm.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            submitLoginForm();
+        }
+    });
+
+    function submitLoginForm() {
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
 
@@ -175,18 +183,8 @@ function setupLoginForm() {
             })
             .catch(error => console.error('Greška prilikom prijave:', error));
         }
-    });
+    }
 }
-document.addEventListener("DOMContentLoaded", function() {
-    highlightActiveLink();
-    setupSmoothScrolling();
-    showWelcomeMessage();
-    loadIndexImages();
-    initializeHeroContent();
-    setupVideoAutoPlay();
-    setupLoginForm(); 
-    loadBackgroundImages(); // Dodaj ovu liniju za dinamičko učitavanje pozadinskih slika
-});
 
 function loadBackgroundImages() {
     fetch('images.json')

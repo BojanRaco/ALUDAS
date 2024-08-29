@@ -24,11 +24,11 @@ app.use(session({
     saveUninitialized: true
 }));
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'docs')));
 
 // Ruta za posluživanje index.html na korenskom URL-u
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'docs', 'index.html'));
 });
 
 // Ruta za prijavu
@@ -60,14 +60,14 @@ function requireLogin(req, res, next) {
 
 // Zaštita admin panela
 app.get('/admin.html', requireLogin, (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'admin.html'));
+    res.sendFile(path.join(__dirname, 'docs', 'admin.html'));
 });
 
 // Konfiguracija multer za upload slika
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
         const section = req.body.section;
-        const uploadPath = path.join(__dirname, 'public/images', section);
+        const uploadPath = path.join(__dirname, 'docs/images', section);
         if (!fs.existsSync(uploadPath)) {
             fs.mkdirSync(uploadPath, { recursive: true });
         }
@@ -84,12 +84,16 @@ app.post('/upload_image', requireLogin, upload.single('image'), (req, res) => {
     const section = req.body.section;
     const image = req.file;
 
+    console.log('Uploadovanje slike za sekciju:', section);
+    console.log('Primljeni fajl:', image);
+
     if (!image) {
+        console.error('Nema uploadovane slike.');
         return res.status(400).json({ message: 'Nema uploadovane slike.' });
     }
 
     const inputFilePath = image.path;
-    const outputFilePath = path.join(__dirname, 'public/images/compressed_images', `${section}_${image.filename}.webp`);
+    const outputFilePath = path.join(__dirname, 'docs/images/compressed_images', `${section}_${image.filename}.webp`);
 
     sharp(inputFilePath)
         .resize({
@@ -102,12 +106,13 @@ app.post('/upload_image', requireLogin, upload.single('image'), (req, res) => {
         .webp({ quality: 80 })
         .toFile(outputFilePath)
         .then(() => {
+            console.log('Slika uspešno konvertovana i sačuvana na:', outputFilePath);
             res.json({ message: 'Slika uspešno uploadovana!' });
 
             generateImagesJson().catch(console.error);
         })
         .catch(error => {
-            console.error('Greška:', error);
+            console.error('Greška pri obradi slike:', error);
             res.status(500).json({ message: 'Greška pri obradi slike.' });
         });
 });
@@ -115,58 +120,72 @@ app.post('/upload_image', requireLogin, upload.single('image'), (req, res) => {
 // Ruta za brisanje slika
 app.post('/delete_image', requireLogin, (req, res) => {
     const section = req.body.section;
-    const imageName = req.body.imageName;
+    const images = req.body.images;
 
-    const imagePath = path.join(__dirname, 'public/images', section, imageName);
-    const compressedImagePath = path.join(__dirname, 'public/images/compressed_images', `${section}_${imageName}.webp`);
-
-    console.log(`Trying to delete image: ${imagePath}`);
-
-    if (!fs.existsSync(imagePath)) {
-        console.log('Image not found in original directory');
-        return res.status(404).json({ message: 'Slika nije pronađena.' });
+    if (!section || !images || images.length === 0) {
+        return res.status(400).json({ message: 'Invalid section or no images selected.' });
     }
 
-    fs.unlink(imagePath, (err) => {
-        if (err) {
-            console.error('Greška pri brisanju slike iz originalnog direktorijuma:', err);
-            return res.status(500).json({ message: 'Greška pri brisanju slike.' });
-        }
+    images.forEach((imageName) => {
+        const imagePath = path.join(__dirname, 'docs/images', section, path.basename(imageName));
 
-        console.log('Image deleted from original directory successfully');
-
-        if (fs.existsSync(compressedImagePath)) {
-            fs.unlink(compressedImagePath, (err) => {
+        if (fs.existsSync(imagePath)) {
+            fs.unlink(imagePath, (err) => {
                 if (err) {
-                    console.error('Greška pri brisanju komprimovane slike:', err);
-                    return res.status(500).json({ message: 'Greška pri brisanju komprimovane slike.' });
+                    console.error('Greška pri brisanju slike iz originalnog direktorijuma:', err);
+                    return res.status(500).json({ message: 'Greška pri brisanju slike.' });
                 }
-                console.log('Compressed image deleted successfully');
+
+                const compressedImagePath = path.join(__dirname, 'docs/images/compressed_images', `${section}_${path.basename(imageName)}.webp`);
+
+                if (fs.existsSync(compressedImagePath)) {
+                    fs.unlink(compressedImagePath, (err) => {
+                        if (err) {
+                            console.error('Greška pri brisanju komprimovane slike:', err);
+                            return res.status(500).json({ message: 'Greška pri brisanju komprimovane slike.' });
+                        }
+                        console.log('Compressed image deleted successfully');
+                    });
+                }
+
+                console.log('Image deleted from original directory successfully');
             });
+        } else {
+            console.warn(`Image not found: ${imagePath}`);
         }
-
-        generateImagesJson().catch(console.error);
-
-        res.json({ message: 'Slika uspešno obrisana.' });
     });
+
+    generateImagesJson().catch(console.error);
+
+    res.json({ message: 'Selected images have been successfully deleted.' });
 });
 
 // Ruta za dobavljanje slika za odabranu sekciju
 app.get('/get_images', (req, res) => {
     const section = req.query.section;
-    const imagesData = JSON.parse(fs.readFileSync(path.join('public', 'images.json')));
+    const sectionPath = path.join(__dirname, 'docs/images', section);
 
-    // Pronađimo slike za zadatu sekciju
-    const findSectionImages = (data, section) => {
-        if (section.includes('/')) {
-            const [mainSection, subSection] = section.split('/');
-            return data[mainSection][subSection] || [];
-        }
-        return data[section] || [];
-    };
+    if (fs.existsSync(sectionPath)) {
+        const images = fs.readdirSync(sectionPath).filter(file => {
+            return fs.statSync(path.join(sectionPath, file)).isFile();
+        });
 
-    const sectionPath = findSectionImages(imagesData, section);
-    res.json({ images: sectionPath });
+        res.json({ images });
+    } else {
+        res.status(404).json({ images: [] });
+    }
+});
+
+// Dodavanje GET rute za pokretanje generateImagesJson skripte
+app.get('/generateImagesJson', (req, res) => {
+    generateImagesJson()
+        .then(() => {
+            res.json({ success: true }); // Vraćamo JSON kao odgovor
+        })
+        .catch(error => {
+            console.error('Greška pri generisanju slika:', error);
+            res.status(500).json({ success: false, error: 'Failed to generate images JSON' });
+        });
 });
 
 // Pokrenite server nakon generisanja slika

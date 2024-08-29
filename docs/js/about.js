@@ -1,8 +1,14 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Dinamičko učitavanje slika iz images.json fajla za about stranu
+document.addEventListener("DOMContentLoaded", function() {
+    // Dinamičko učitavanje slike za about sekciju
     fetch('images.json')
         .then(response => response.json())
         .then(data => {
+            const aboutSection = document.getElementById('about');
+            const aboutImage = data.about_images[0].src;  // Uzimamo prvu sliku iz about_images
+
+            aboutSection.style.backgroundImage = `url(${aboutImage})`;
+
+            // Učitavanje slika za galeriju
             const aboutImages = data.about_images;
             const galleryWrapper = document.querySelector('.about-gallery-wrapper');
             if (galleryWrapper) {

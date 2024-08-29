@@ -291,6 +291,46 @@ footer i {
     padding: 0;
 }
 
+#loginForm {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0; /* Postavi na vrh stranice */
+    right: 0;
+    height: 7.5vw; /* Postavi visinu forme*/
+    width: 20vw; /* Širina forme */
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 2vw; /* Zaobljeni uglovi */
+    z-index: 1000;
+}
+
+#loginForm input {
+    margin: 10px 0;
+    padding: 10px;
+    width: 80%;
+    border-radius: 1vw; /* Zaobljeni uglovi input polja */
+}
+
+#loginForm button {
+    display: none; /* Sakriveno dugme jer koristimo Enter za slanje forme */
+}
+
+#closeForm {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: white;
+}
+
+#loginError {
+    color: red;
+    margin-top: 10px;
+}
+
 @media (min-width: 768px) {
     .logo {
         max-width: 200px;

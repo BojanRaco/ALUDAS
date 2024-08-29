@@ -1,8 +1,14 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Dinamičko učitavanje slika iz images.json fajla za contact stranu
+document.addEventListener("DOMContentLoaded", function() {
+    // Dinamičko učitavanje pozadinske slike za contact sekciju
     fetch('images.json')
         .then(response => response.json())
         .then(data => {
+            const mainSection = document.querySelector('main');
+            const contactImage = data.contact_images[0].src;  // Uzimamo prvu sliku iz contact_images
+
+            mainSection.style.backgroundImage = `url(${contactImage})`;
+
+            // Učitavanje slika za galeriju
             const contactImages = data.contact_images;
             const galleryWrapper = document.querySelector('.contact-gallery-wrapper');
             if (galleryWrapper) {

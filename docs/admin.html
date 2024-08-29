@@ -36,16 +36,15 @@
                 <option value="product_images/izlozi_terase">Izlozi i Terase</option>
                 <option value="product_images/ostalo">Ostalo</option>
             </select>
-            <label for="imageName">Izaberi sliku:</label>
-            <select id="imageName" name="imageName">
-                <!-- Slike će biti dinamički učitane ovde -->
-            </select>
-            <button type="submit">Obriši</button>
+
+            <div id="imagesContainer"></div>
+            
+            <button type="submit">Obriši odabrane slike</button>
         </form>
 
         <!-- Dugme za povratak na sajt - centrirano -->
         <div class="return-button-container">
-            <button class="return-button" onclick="window.location.href='/'">Povratak na sajt</button>
+            <button class="return-button" id="returnToSite">Povratak na sajt</button>
         </div>
 
         <div id="message"></div>

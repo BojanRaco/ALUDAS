@@ -4,20 +4,20 @@ const sharp = require('sharp');
 
 // Direktorijumi sa slikama
 const directories = {
-    about_images: 'public/images/about_images',
-    contact_images: 'public/images/contact_images',
-    index_pictures: 'public/images/index_pictures',
-    index_slider: 'public/images/index_slider',
+    about_images: 'docs/images/about_images',
+    contact_images: 'docs/images/contact_images',
+    index_pictures: 'docs/images/index_pictures',
+    index_slider: 'docs/images/index_slider',
     product_images: {
-        izlozi_terase: 'public/images/product_images/izlozi_terase',
-        ostalo: 'public/images/product_images/ostalo',
-        prozori: 'public/images/product_images/prozori',
-        vrata: 'public/images/product_images/vrata'
+        izlozi_terase: 'docs/images/product_images/izlozi_terase',
+        ostalo: 'docs/images/product_images/ostalo',
+        prozori: 'docs/images/product_images/prozori',
+        vrata: 'docs/images/product_images/vrata'
     }
 };
 
 // Direktorijum za kompresovane slike
-const outputDir = 'public/images/compressed_images';
+const outputDir = 'docs/images/compressed_images';
 
 // Osiguraj se da output direktorijum postoji
 if (!fs.existsSync(outputDir)) {
@@ -75,7 +75,7 @@ const generateImagesJson = async () => {
                     .toFile(outputFilePath);
 
                 outputArray.push({
-                    src: outputFilePath.replace(/\\/g, '/').replace('public/', ''), // Zamenite backslash sa forward slash
+                    src: outputFilePath.replace(/\\/g, '/').replace('docs/', ''), // Zamenite backslash sa forward slash
                     alt: file
                 });
 
@@ -99,8 +99,8 @@ const generateImagesJson = async () => {
         }
     }
 
-    // Smeštanje JSON fajla u public direktorijum
-    fs.writeFileSync(path.join('public', 'images.json'), JSON.stringify(imagesData, null, 2));
+    // Smeštanje JSON fajla u docs direktorijum
+    fs.writeFileSync(path.join('docs', 'images.json'), JSON.stringify(imagesData, null, 2));
     console.log('images.json has been generated and images have been processed and compressed');
 };
 
