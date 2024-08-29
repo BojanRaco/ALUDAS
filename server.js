@@ -9,7 +9,8 @@ const sharp = require('sharp');
 const { generateImagesJson } = require('./generateImagesJson'); // Importovanje funkcije
 
 const app = express();
-const port = 3001; // Promenjen port na 3001
+const port = process.env.PORT || 3001; // Koristi port koji dodeli Heroku ili 3001 za lokalno pokretanje
+
 
 // Dummy user data for demonstration purposes
 const users = [
