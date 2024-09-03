@@ -34,7 +34,7 @@
     .feature, .product-item {
         max-width: 100%;
     }
-    
+
     .image-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -42,7 +42,7 @@
     .process-video video {
         height: auto;
     }
-    
+
     /* Dodato pravilo za bolje usklađivanje prostora između elemenata */
     .feature-content {
         padding: 10px 0;
@@ -56,6 +56,29 @@
         margin-bottom: 10px;
     }
 
+    /* Prikaz slika u hero sekciji preko cele širine ekrana */
+    .slider-container {
+        position: relative;
+        height: 100vh; /* Visina slidera prilagođena visini ekrana */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #333; /* Tamna pozadina */
+    }
+
+    .slider-item {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain; /* Zadržava ceo sadržaj slike u okviru */
+        aspect-ratio: 16/9; /* Proporcija 16:9 za slike u slideru */
+    }
+
+    /* Sakrivanje slider indikatora na mobilnim uređajima */
+    .slider-indicators {
+        display: none;
+    }
+
     /* Hero content usklađivanje */
     .hero-content {
         position: absolute;
@@ -66,11 +89,12 @@
         padding: 10px;
         text-align: center;
         background-color: rgba(0, 0, 0, 0.5);
+        height: 100%;
     }
 
     .slider-container {
         position: relative;
-        height: 50vh;
+        height: 100vh;
     }
 }
 
