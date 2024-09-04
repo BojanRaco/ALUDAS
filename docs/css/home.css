@@ -18,7 +18,7 @@ body {
 header {
     background-color: #013f50;
     color: #fff;
-    padding: 8px 20px;
+    padding: 0.5rem 1.25rem; /* 8px 20px */
     text-align: center;
     margin: 0;
     border: 0;
@@ -31,19 +31,19 @@ header, main, footer {
 .logo {
     height: auto;
     width: 100%;
-    max-width: 100px;
+    max-width: 6.25rem; /* 100px */
     border-radius: 20%;
 }
 
 nav ul {
     list-style: none;
-    padding: 10px;
+    padding: 0.625rem; /* 10px */
     margin: 0;
 }
 
 nav ul li {
     display: inline;
-    margin-right: 10px;
+    margin-right: 0.625rem; /* 10px */
 }
 
 nav ul li a {
@@ -83,11 +83,11 @@ main {
     display: flex;
     transition: transform 0.5s ease;
     height: 100%;
-    width: 100%; /* Adjusted to fit all images properly */
+    width: 100%;
 }
 
 .slider-item {
-    min-width: 100vw; /* Adjusted to ensure each slide takes full width */
+    min-width: 100vw;
     height: 100%;
     object-fit: cover;
     border-radius: 2em;
@@ -106,13 +106,13 @@ main {
     background-color: rgba(0, 0, 0, 0.5);
     border: none;
     color: white;
-    font-size: 24px;
+    font-size: 1.5rem; /* 24px */
     cursor: pointer;
 }
 
 .slider-indicators {
     position: absolute;
-    bottom: 10px;
+    bottom: 0.625rem; /* 10px */
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -122,9 +122,9 @@ main {
 .slider-indicators .indicator {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 50%;
-    width: 10px;
-    height: 10px;
-    margin: 0 5px;
+    width: 0.625rem; /* 10px */
+    height: 0.625rem; /* 10px */
+    margin: 0 0.3125rem; /* 5px */
     cursor: pointer;
 }
 
@@ -138,7 +138,7 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
+    padding: 1.25rem; /* 20px */
     border-radius: 2em;
     color: white;
     text-align: center;
@@ -147,18 +147,18 @@ main {
 
 .hero-content h1 {
     font-size: 2.5em;
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem; /* 10px */
 }
 
 .hero-content p {
     font-size: 1.2em;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem; /* 20px */
 }
 
 .hero-content button {
     background-color: #024959;
     color: white;
-    padding: 10px 20px;
+    padding: 0.625rem 1.25rem; /* 10px 20px */
     border: none;
     cursor: pointer;
     font-size: 1em;
@@ -173,7 +173,7 @@ main {
     display: grid;
     grid-template-columns: 25% 75%;
     width: 100%;
-    min-height: 400px;
+    min-height: 25rem; /* 400px */
     margin: 1em;
     padding: 0;
     align-items: stretch;
@@ -199,7 +199,7 @@ main {
 }
 
 .feature {
-    max-width: 300px;
+    max-width: 18.75rem; /* 300px */
     margin: 0;
     padding: 0;
     text-align: center;
@@ -218,8 +218,8 @@ main {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 400px;
-    padding: 20px;
+    height: 25rem; /* 400px */
+    padding: 1.25rem; /* 20px */
     box-sizing: border-box;
 }
 
@@ -234,7 +234,7 @@ main {
     background-color: #013f50;
     color: #fff;
     text-align: center;
-    padding: 20px;
+    padding: 1.25rem; /* 20px */
     margin: 0;
     border-top-left-radius: 2em;
     border-top-right-radius: 2em;
@@ -248,7 +248,7 @@ main {
 #call-to-action button {
     background-color: #024959;
     color: white;
-    padding: 10px 20px;
+    padding: 0.625rem 1.25rem; /* 10px 20px */
     border: none;
     cursor: pointer;
     font-size: 1em;
@@ -263,7 +263,7 @@ footer {
     background-color: #013f50;
     color: #fff;
     text-align: center;
-    padding: 10px 0;
+    padding: 0.625rem 0; /* 10px 0 */
     margin: 0;
     border: 0;
     border-top-left-radius: 0;
@@ -278,7 +278,7 @@ footer p {
 footer a {
     color: #fff;
     text-decoration: none;
-    margin: 0 10px;
+    margin: 0 0.625rem; /* 10px */
     font-size: 1.5em;
 }
 
@@ -287,7 +287,7 @@ footer a:hover {
 }
 
 footer i {
-    margin: 0 5px;
+    margin: 0 0.3125rem; /* 5px */
     padding: 0;
 }
 
@@ -299,7 +299,7 @@ footer i {
     position: fixed;
     top: 0; /* Postavi na vrh stranice */
     right: 0;
-    height: 7.5vw; /* Postavi visinu forme*/
+    height: 7.5vw; /* Postavi visinu forme */
     width: 20vw; /* Širina forme */
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 2vw; /* Zaobljeni uglovi */
@@ -307,8 +307,8 @@ footer i {
 }
 
 #loginForm input {
-    margin: 10px 0;
-    padding: 10px;
+    margin: 0.625rem 0; /* 10px 0 */
+    padding: 0.625rem; /* 10px */
     width: 80%;
     border-radius: 1vw; /* Zaobljeni uglovi input polja */
 }
@@ -319,8 +319,8 @@ footer i {
 
 #closeForm {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 0.3125rem; /* 5px */
+    right: 0.3125rem; /* 5px */
     font-size: 1.5em;
     cursor: pointer;
     color: white;
@@ -328,16 +328,16 @@ footer i {
 
 #loginError {
     color: red;
-    margin-top: 10px;
+    margin-top: 0.625rem; /* 10px */
 }
 
 @media (min-width: 768px) {
     .logo {
-        max-width: 200px;
+        max-width: 12.5rem; /* 200px */
     }
 
     nav ul {
-        padding: 20px;
+        padding: 1.25rem; /* 20px */
     }
 }
 

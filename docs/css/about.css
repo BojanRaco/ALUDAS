@@ -4,66 +4,66 @@
     background-size: cover;
     background-position: center;
     color: #333;
-    border-radius: 2em;
-    margin-top: 1em;
-    margin-bottom: 1em;
+    border-radius: 2em; /* Kept as em since it's more appropriate for rounded corners */
+    margin-top: 1rem; /* Converted from px to rem */
+    margin-bottom: 1rem; /* Converted from px to rem */
     text-align: center;
 }
 
 #about h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
+    font-size: 2.5rem; /* Converted from px to rem */
+    margin-bottom: 1.25rem; /* Converted from px to rem */
     color: #333;
 }
 
 .card {
     background-color: rgba(0, 0, 0, 0.5);
-    margin: 20px auto;
-    padding: 20px;
-    max-width: 800px;
-    border-radius: 2em;
+    margin: 1.25rem auto; /* Converted from px to rem */
+    padding: 1.25rem; /* Converted from px to rem */
+    max-width: 50rem; /* Converted from px to rem */
+    border-radius: 2em; /* Kept as em */
     text-align: center;
 }
 
 #about p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
+    font-size: 1.2rem; /* Converted from px to rem */
+    margin-bottom: 1.25rem; /* Converted from px to rem */
     color: white;
 }
 
 #about button {
     background-color: #024959;
     color: white;
-    padding: 10px 20px;
+    padding: 0.625rem 1.25rem; /* Converted from px to rem */
     border: none;
     cursor: pointer;
-    font-size: 1em;
-    border-radius: 2em;
+    font-size: 1rem; /* Converted from px to rem */
+    border-radius: 2em; /* Kept as em */
     display: inline-block;
     margin: 0 auto;
 }
 
-/* Media queries za mobilne uređaje */
-@media only screen and (max-width: 768px) {
+/* Media queries for mobile devices */
+@media only screen and (max-width: 48em) { /* Converted max-width from px to em */
     #about {
-        padding: 20px;
+        padding: 1.25rem; /* Converted from px to rem */
     }
 
     #about h1 {
-        font-size: 2em;
+        font-size: 2rem; /* Converted from px to rem */
     }
 
     .card {
-        padding: 10px;
+        padding: 0.625rem; /* Converted from px to rem */
     }
 
     #about p, #about button {
-        font-size: 1em;
-        margin-bottom: 15px;
+        font-size: 1rem; /* Converted from px to rem */
+        margin-bottom: 0.9375rem; /* Converted from px to rem */
     }
 
     #about button {
-        padding: 8px 16px;
+        padding: 0.5rem 1rem; /* Converted from px to rem */
     }
 }
 

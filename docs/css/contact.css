@@ -13,46 +13,46 @@ main {
     background-repeat: no-repeat;
     background-attachment: fixed;
     flex: 1;
-    padding: 20px;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    border-radius: 2em;
+    padding: 1.25rem; /* 20px -> 1.25rem */
+    margin-top: 0.625rem; /* 1em -> 0.625rem */
+    margin-bottom: 0.625rem; /* 1em -> 0.625rem */
+    border-radius: 1.25rem; /* 2em -> 1.25rem */
 }
 
 .contact-info {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
-    padding: 20px;
+    padding: 1.25rem; /* 20px -> 1.25rem */
     margin: auto;
-    max-width: 800px;
-    border-radius: 2em;
+    max-width: 50rem; /* 800px -> 50rem */
+    border-radius: 1.25rem; /* 2em -> 1.25rem */
     text-align: center;
     line-height: 1.8;
 }
 
 .contact-info p, .contact-info h1, .contact-info h3 {
-    margin-bottom: 15px;
+    margin-bottom: 0.9375rem; /* 15px -> 0.9375rem */
 }
 
 .contact-links i {
-    font-size: 2em;
-    margin-right: 15px;
+    font-size: 2rem;
+    margin-right: 0.9375rem; /* 15px -> 0.9375rem */
     color: white;
 }
 
-.contact-links .fa-phone{
+.contact-links .fa-phone {
     color: green;
 }
 
-.contact-links .fa-envelope{
+.contact-links .fa-envelope {
     color: lightblue;
 }
 
-.contact-links .fa-instagram{
+.contact-links .fa-instagram {
     color: #c13584;
 }
 
-.contact-links .fa-viber{
+.contact-links .fa-viber {
     color: #665cac;
 }
 
@@ -78,27 +78,27 @@ img, video {
 }
 
 /* Stilovi za manje ekrane */
-@media (max-width: 768px) {
+@media (max-width: 48rem) { /* 768px -> 48rem */
     .contact-info {
-        padding: 10px;
-        margin: 10px;
-        font-size: 1em;
+        padding: 0.625rem; /* 10px -> 0.625rem */
+        margin: 0.625rem; /* 10px -> 0.625rem */
+        font-size: 1rem;
     }
 
     .contact-links i {
-        font-size: 1.5em;
-        margin-right: 10px;
+        font-size: 1.5rem;
+        margin-right: 0.625rem; /* 10px -> 0.625rem */
     }
 
     .contact-info h1 {
-        font-size: 1.5em;
+        font-size: 1.5rem;
     }
 
     .contact-info h3 {
-        font-size: 1em;
+        font-size: 1rem;
     }
 
     .contact-info p {
-        font-size: 0.9em;
+        font-size: 0.9rem;
     }
 }

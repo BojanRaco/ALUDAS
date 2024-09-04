@@ -3,20 +3,20 @@ footer {
     background-color: #013f50; /* Nova boja */
     color: #fff; /* Bela boja za tekst */
     text-align: center;
-    padding: 10px 0;
+    padding: 0.625rem 0; /* 10px = 0.625rem */
     margin: 0; /* Uklanjanje margina */
     border: 0; /* Uklanjanje granica */
     border-radius: 2em;
 }
 
 footer p {
-    margin: 5px 0;
+    margin: 0.3125rem 0; /* 5px = 0.3125rem */
 }
 
 footer a {
     color: #fff; /* Bela boja za linkove */
     text-decoration: none;
-    margin: 0 10px;
+    margin: 0 0.625rem; /* 10px = 0.625rem */
     font-size: 1.5em; /* Veličina ikona */
 }
 
@@ -41,5 +41,5 @@ footer a:hover {
 }
 
 footer i {
-    margin: 0 5px;
+    margin: 0 0.3125rem; /* 5px = 0.3125rem */
 }

@@ -64,7 +64,7 @@ footer {
 .image-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 0.625rem; /* 10px converted to rem */
     width: 100%;
     height: auto;
 }
@@ -72,14 +72,14 @@ footer {
 .grid-item {
     position: relative;
     overflow: hidden;
-    border-radius: 2em;
+    border-radius: 2rem; /* 2em converted to rem */
 }
 
 .grid-item img {
     width: 100%;
-    height: 15em; /* Postavlja visinu slika na 15em */
+    height: 15rem; /* 15em converted to rem */
     object-fit: cover;
-    border-radius: 2em;
+    border-radius: 2rem; /* 2em converted to rem */
     transition: transform 0.3s ease, opacity 0.3s ease;
     cursor: pointer;
 }
@@ -90,7 +90,7 @@ footer {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 1.25rem; /* 20px converted to rem */
     box-sizing: border-box;
     height: auto;
 }
@@ -105,10 +105,10 @@ footer {
 .slider-nav button {
     background-color: #013f50;
     color: white;
-    padding: 10px;
+    padding: 0.625rem; /* 10px converted to rem */
     border: none;
     border-radius: 50%;
-    font-size: 24px;
+    font-size: 1.5rem; /* 24px converted to rem */
     cursor: pointer;
 }
 
@@ -119,26 +119,26 @@ footer {
 .description {
     width: 90%;
     text-align: center;
-    padding: 20px;
+    padding: 1.25rem; /* 20px converted to rem */
     background-color: #013f50;
     color: white;
-    border-radius: 2em;
+    border-radius: 2rem; /* 2em converted to rem */
 }
 
 .description p {
     margin: 0;
-    padding: 0 20px;
+    padding: 0 1.25rem; /* 20px converted to rem */
 }
 
 #call-to-action {
     background-color: #013f50;
     color: #fff;
     text-align: center;
-    padding: 20px;
+    padding: 1.25rem; /* 20px converted to rem */
     margin: 0;
-    margin-top: 1em;
-    border-top-left-radius: 2em;
-    border-top-right-radius: 2em;
+    margin-top: 1rem; /* 1em converted to rem */
+    border-top-left-radius: 2rem; /* 2em converted to rem */
+    border-top-right-radius: 2rem; /* 2em converted to rem */
     height: auto;
 }
 
@@ -150,11 +150,11 @@ footer {
 #call-to-action button {
     background-color: #024959;
     color: white;
-    padding: 10px 20px;
+    padding: 0.625rem 1.25rem; /* 10px 20px converted to rem */
     border: none;
     cursor: pointer;
-    font-size: 1em;
-    border-radius: 2em;
+    font-size: 1rem; /* 16px converted to rem */
+    border-radius: 2rem; /* 2em converted to rem */
 }
 
 #call-to-action button:hover {
@@ -164,8 +164,8 @@ footer {
 @media only screen and (min-width: 769px) {
     .slider-container {
         flex-direction: row;
-        margin-top: 1em;
-        margin-left: 1em;
+        margin-top: 1rem; /* 1em converted to rem */
+        margin-left: 1rem; /* 1em converted to rem */
     }
 
     .slider-section {
@@ -187,7 +187,7 @@ footer {
     }
 
     .slider-description .description {
-        padding: 20px;
+        padding: 1.25rem; /* 20px converted to rem */
     }
 
     .image-grid {
@@ -209,23 +209,23 @@ footer {
     justify-content: center;
     align-items: center;
     z-index: 10;
-    border-radius: 2em;
+    border-radius: 2rem; /* 2em converted to rem */
 }
 
 .expanded-image img {
     max-width: 90%;
-    max-height: 41em;
-    border-radius: 2em;
-    margin-left: 2.5em;
-    margin-top: 3em;
-    margin-bottom: 3em;
+    max-height: 41rem; /* 41em converted to rem */
+    border-radius: 2rem; /* 2em converted to rem */
+    margin-left: 2.5rem; /* 2.5em converted to rem */
+    margin-top: 3rem; /* 3em converted to rem */
+    margin-bottom: 3rem; /* 3em converted to rem */
 }
 
 .expanded-image .close-btn {
     position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 2em;
+    top: 1.25rem; /* 20px converted to rem */
+    right: 1.875rem; /* 30px converted to rem */
+    font-size: 2rem; /* 32px converted to rem */
     color: white;
     cursor: pointer;
 }
@@ -255,23 +255,23 @@ footer {
     top: 50%;
     transform: translateY(-50%);
     color: #fff;
-    font-size: 24px;
+    font-size: 1.5rem; /* 24px converted to rem */
     cursor: pointer;
 }
 
 .prev-btn {
-    left: 10px;
+    left: 0.625rem; /* 10px converted to rem */
 }
 
 .next-btn {
-    right: 10px;
+    right: 0.625rem; /* 10px converted to rem */
 }
 
 .close-btn {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 0.625rem; /* 10px converted to rem */
+    right: 0.625rem; /* 10px converted to rem */
     color: #fff;
-    font-size: 24px;
+    font-size: 1.5rem; /* 24px converted to rem */
     cursor: pointer;
 }

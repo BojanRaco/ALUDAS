@@ -27,21 +27,21 @@ main {
     padding: 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) { /* 768px */
     #features {
-        padding: 40px;
+        padding: 2.5rem; /* 40px */
     }
 
     #call-to-action {
-        padding: 40px;
+        padding: 2.5rem; /* 40px */
     }
 
     #about {
-        padding: 100px;
+        padding: 6.25rem; /* 100px */
     }
 }
 
-@media (min-width: 768px) and (max-width: 1200px) {
+@media (min-width: 48rem) and (max-width: 75rem) { /* 768px to 1200px */
     .product-item {
         flex: 1 1 50%;
     }

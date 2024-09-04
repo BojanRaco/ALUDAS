@@ -8,16 +8,16 @@ body {
 
 .container {
     width: 50%;
-    margin: 50px auto;
+    margin: 3.125rem auto; /* 50px u rem */
     background-color: #024959; /* Tamnija nijansa za container, u skladu sa header bojom */
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow efekat */
-    border-radius: 8px; /* Zaobljeni uglovi */
+    padding: 1.25rem; /* 20px u rem */
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.5); /* 10px u rem */
+    border-radius: 0.5rem; /* 8px u rem */
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem; /* 20px u rem */
     color: #fff; /* Bele boje naslova */
 }
 
@@ -27,17 +27,17 @@ form {
 }
 
 label {
-    margin: 10px 0 5px;
+    margin: 0.625rem 0 0.3125rem; /* 10px i 5px u rem */
     color: #ddd; /* Svetlija boja za tekst labela */
 }
 
 input[type="file"] {
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 0.625rem; /* 10px u rem */
+    margin-bottom: 0.625rem; /* 10px u rem */
     background-color: #013f50; /* Ista boja kao header */
     color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 0.25rem; /* 4px u rem */
     cursor: pointer;
 }
 
@@ -50,9 +50,9 @@ input[type="file"]::before {
     display: inline-block;
     background-color: #013f50;
     color: white;
-    border: 1px solid #013f50;
-    padding: 8px 15px;
-    border-radius: 4px;
+    border: 0.0625rem solid #013f50; /* 1px u rem */
+    padding: 0.5rem 0.9375rem; /* 8px i 15px u rem */
+    border-radius: 0.25rem; /* 4px u rem */
     cursor: pointer;
 }
 
@@ -63,8 +63,8 @@ input[type="file"]:hover::before {
 input[type="file"]::after {
     content: 'Fajl nije izabran';
     display: inline-block;
-    padding-left: 10px;
-    font-size: 14px;
+    padding-left: 0.625rem; /* 10px u rem */
+    font-size: 0.875rem; /* 14px u rem */
     color: #fff;
 }
 
@@ -73,17 +73,17 @@ input[type="file"]:valid::after {
 }
 
 input, select, button {
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 0.625rem; /* 10px u rem */
+    margin-bottom: 0.625rem; /* 10px u rem */
     background-color: #555; /* Tamno siva pozadina input polja */
     color: #fff; /* Bela boja teksta */
     border: none; /* Uklonjena default granica */
-    border-radius: 4px; /* Zaobljeni uglovi */
+    border-radius: 0.25rem; /* 4px u rem */
 }
 
 input:focus, select:focus, button:focus {
     outline: none;
-    border: 2px solid #666; /* Istaknuta granica prilikom fokusa */
+    border: 0.125rem solid #666; /* 2px u rem */
 }
 
 button {
@@ -98,15 +98,15 @@ button:hover {
 
 #message {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 1.25rem; /* 20px u rem */
 }
 
 /* Stilovi za prikaz slika */
 #imagesContainer {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 20px;
+    gap: 0.625rem; /* 10px u rem */
+    margin-top: 1.25rem; /* 20px u rem */
 }
 
 .image-wrapper {
@@ -114,32 +114,32 @@ button:hover {
     flex-direction: column;
     align-items: center;
     background-color: #013f50;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 0.625rem; /* 10px u rem */
+    border-radius: 0.3125rem; /* 5px u rem */
 }
 
 .image-wrapper img {
-    border-radius: 5px;
+    border-radius: 0.3125rem; /* 5px u rem */
 }
 
 .image-checkbox {
-    margin-top: 5px;
+    margin-top: 0.3125rem; /* 5px u rem */
 }
 
 /* Dugme za povratak na sajt - centrirano */
 .return-button-container {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 1.25rem; /* 20px u rem */
 }
 
 .return-button {
-    padding: 10px 20px;
+    padding: 0.625rem 1.25rem; /* 10px i 20px u rem */
     background-color: #013f50; /* Ista boja kao header */
     color: white;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 0.3125rem; /* 5px u rem */
 }
 
 .return-button:hover {

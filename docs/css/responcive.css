@@ -9,14 +9,14 @@
     }
 
     .feature-content .feature {
-        margin-bottom: 1em;
+        margin-bottom: 1rem;
     }
 }
 
 /* Pravila za mobilne uređaje */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 48rem) {
     body {
-        font-size: 14px;
+        font-size: 0.875rem; /* Oko 14px */
     }
 
     .contact-info, .feature, .product-item, .slider-section, .slider-description, .image-grid {
@@ -28,7 +28,7 @@
     .hero-content, .feature-content, .process-video, .slider-description {
         flex-direction: column;
         align-items: center;
-        padding: 10px;
+        padding: 0.625rem; /* 10px */
     }
 
     .feature, .product-item {
@@ -45,15 +45,15 @@
 
     /* Dodato pravilo za bolje usklađivanje prostora između elemenata */
     .feature-content {
-        padding: 10px 0;
+        padding: 0.625rem 0; /* 10px */
     }
 
     .feature-content .feature {
-        margin-bottom: 10px;
+        margin-bottom: 0.625rem; /* 10px */
     }
 
     .feature-content img {
-        margin-bottom: 10px;
+        margin-bottom: 0.625rem; /* 10px */
     }
 
     /* Prikaz slika u hero sekciji preko cele širine ekrana */
@@ -86,7 +86,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         width: 90%;
-        padding: 10px;
+        padding: 0.625rem; /* 10px */
         text-align: center;
         background-color: rgba(0, 0, 0, 0.5);
         height: 100%;
@@ -99,70 +99,70 @@
 }
 
 /* from header.css */
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
     .logo {
-        max-width: 200px;
+        max-width: 12.5rem; /* 200px */
     }
 
     nav ul {
-        padding: 20px;
+        padding: 1.25rem; /* 20px */
     }
 }
 
 /* from footer.css */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 48rem) {
     footer {
         flex-direction: row;
     }
 
     footer p, footer a {
-        margin: 5px;
+        margin: 0.3125rem; /* 5px */
     }
 }
 
 /* from contact.css */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 48rem) {
     .contact-info {
         width: 90%;
-        margin: 10px auto;
+        margin: 0.625rem auto; /* 10px */
     }
 
     .contact-links i {
-        font-size: 1.5em;
-        margin-right: 10px;
+        font-size: 1.5rem; /* 1.5em ostaje isto jer se odnosi na veličinu fonta */
+        margin-right: 0.625rem; /* 10px */
     }
 }
 
 /* from about.css */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 48rem) {
     #about {
-        padding: 20px;
+        padding: 1.25rem; /* 20px */
     }
 
     #about h1 {
-        font-size: 2em;
+        font-size: 2rem;
     }
 
     .card {
-        padding: 10px;
+        padding: 0.625rem; /* 10px */
     }
 
     #about p, #about button {
-        font-size: 1em;
-        margin-bottom: 15px;
+        font-size: 1rem;
+        margin-bottom: 0.9375rem; /* 15px */
     }
 
     #about button {
-        padding: 8px 16px;
+        padding: 0.5rem 1rem; /* 8px 16px */
     }
 }
 
 /* from products.css */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 48rem) {
     .slider-container {
         height: auto;
         flex-direction: column;
-        margin-top: 1em;
+        margin-top: 1rem; /* 16px */
     }
 
     .slider-section.active {
@@ -193,13 +193,13 @@
     }
 
     .slider-nav button {
-        font-size: 20px;
-        padding: 5px;
+        font-size: 1.25rem; /* 20px */
+        padding: 0.3125rem; /* 5px */
     }
 
     .image-grid {
         grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 10px;
+        grid-gap: 0.625rem; /* 10px */
         width: 100%;
         height: 65vw;
     }
@@ -209,11 +209,11 @@
     }
 
     .slider-description .description {
-        padding: 10px;
+        padding: 0.625rem; /* 10px */
     }
 
     #call-to-action {
-        margin-top: 1em;
+        margin-top: 1rem; /* 16px */
         height: auto;
     }
 
@@ -223,10 +223,10 @@
 }
 
 /* from home.css */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 48rem) {
     .hero-content {
-        padding: 20px;
-        border-radius: 10px;
+        padding: 1.25rem; /* 20px */
+        border-radius: 0.625rem; /* 10px */
     }
 
     #features, #production-process {
@@ -235,7 +235,7 @@
     }
 
     .feature-content, .process-video {
-        padding: 20px;
+        padding: 1.25rem; /* 20px */
     }
 
     .feature, .feature-image, .process-video video {
@@ -243,12 +243,12 @@
     }
 
     .feature-content img, .process-video video {
-        border-radius: 10px;
+        border-radius: 0.625rem; /* 10px */
     }
 }
 
 /* Dodato pravilo za sakrivanje strelica na touchscreen uređajima */
-@media (pointer: coarse), only screen and (max-width: 768px) {
+@media (pointer: coarse), only screen and (max-width: 48rem) {
     .slider-nav.prev, .slider-nav.next {
         display: none;
     }
