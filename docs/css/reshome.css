@@ -18,7 +18,7 @@
         height: auto; /* Visina slidera automatski se prilagođava sadržaju */
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         background-color: #333; /* Tamna pozadina */
     }
 
