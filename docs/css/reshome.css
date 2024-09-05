@@ -3,76 +3,73 @@
 /* Pravila za uređaje sa širinom ekrana do 1024px */
 @media only screen and (max-width: 1024px) {
     body {
-        font-size: 1rem; /* Osnovna veličina fonta koja se može prilagoditi */
-        overflow-x: hidden; /* Sprečava horizontalno skrolovanje */
-        margin: 0; /* Uklanja margine tela sa svih strana */
-        padding: 0; /* Uklanja padding tela sa svih strana */
+        font-size: 1rem;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
     }
 
     .hero-content, .feature-content, .process-video, .slider-description {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 1rem; /* Fleksibilna jedinica za padding */
-        margin: 0; /* Uklanja margine sa strane */
+        padding: 1rem;
+        margin: 0;
     }
 
     .slider-wrapper {
         position: relative;
         width: 100%;
-        height: auto; /* Automatska visina u skladu sa sadržajem */
+        height: auto;
         overflow: hidden;
         border-radius: 1rem;
         margin: 0; /* Uklanja margine sa strane */
-        background-color: #f0f0f0; /* Siva pozadina */
+        background-color: #333; /* Tamna pozadina */
     }
 
     .slider-container {
         display: flex;
         width: 100%;
-        height: auto; /* Visina slidera automatski se prilagođava sadržaju */
+        height: 100%; /* Visina slidera automatski se prilagođava sadržaju */
         align-items: center;
         justify-content: flex-start; /* Početak slidera prikazuje prvu sliku u celosti */
-        transition: transform 0.5s ease; /* Animacija prelaska slika */
-        background-color: #333; /* Tamna pozadina */
-        margin: 0; /* Uklanja margine sa strane */
-        padding: 0; /* Uklanja padding sa strane */
+        transition: transform 0.5s ease;
+        margin: 0;
+        padding: 0;
+        background-color: transparent; /* Uklanja tamnu pozadinu za slider container */
     }
 
     .slider-item {
         width: 100%;
         max-width: 100%;
-        height: auto;
-        object-fit: contain; /* Zadržava ceo sadržaj slike u okviru */
-        aspect-ratio: 16/9; /* Proporcija 16:9 za slike u slideru */
-        background-color: #f0f0f0; /* Siva pozadina sa strane za manje slike */
-        margin: 0; /* Uklanja margine sa strane */
-        padding: 0; /* Uklanja padding sa strane */
+        height: 100%;
+        object-fit: contain;
+        aspect-ratio: 16/9;
+        background-color: #333; /* Tamna pozadina sa strane za manje slike */
+        margin: 0;
+        padding: 0;
     }
 
-    /* Sakrivanje slider indikatora i navigacionih strelica na uređajima sa ekranom osetljivim na dodir */
     .slider-indicators,
     .slider-nav {
         display: none;
     }
 
-    /* Hero content stilovi */
     .hero-content {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 70%; /* Smanjena širina hero content-a za portret mod */
-        padding: 1rem; /* Fleksibilna jedinica za padding */
+        width: 90%;
+        padding: 1.25rem;
         text-align: center;
         background-color: rgba(0, 0, 0, 0.5);
         z-index: 1000;
-        margin: 0; /* Uklanja margine sa strane */
+        margin: 0;
     }
 
-    /* Stilovi za tekst unutar hero contenta */
     .hero-content h1 {
-        font-size: 1.5rem; /* Fleksibilna jedinica za veličinu fonta */
+        font-size: 1.5rem;
         margin-bottom: 0.625rem;
     }
 
@@ -95,16 +92,15 @@
         background-color: #013f50;
     }
 
-    /* Pravila za sekciju features */
     #features {
         grid-template-columns: 1fr;
         text-align: center;
-        margin: 0; /* Uklanja margine sa strane */
+        margin: 0;
     }
 
     .feature-content {
         padding: 1rem;
-        margin: 0; /* Uklanja margine sa strane */
+        margin: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -112,41 +108,45 @@
 
     .feature-content .feature {
         margin-bottom: 0.625rem;
-        margin: 0; /* Uklanja margine sa strane */
+        margin: 0;
     }
 
     .feature-content img {
         margin-bottom: 0.625rem;
         border-radius: 1rem;
-        width: 100%; /* Širina slika podešena na 100% */
+        width: 100%;
         object-fit: contain;
-        margin: 0; /* Uklanja margine sa strane */
-        padding: 0; /* Uklanja padding sa strane */
+        margin: 0;
+        padding: 0;
     }
 
-    /* Pravila za sekciju production process */
     #production-process {
         grid-template-columns: 1fr;
         text-align: center;
-        margin: 0; /* Uklanja margine sa strane */
+        margin: 0;
+    }
+
+    .process-video {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        max-height: calc(100vh - 10rem); /* Ograničava visinu videa */
+        margin: 0;
+        padding: 0;
     }
 
     .process-video video {
         width: 100%;
         height: auto;
         border-radius: 1rem;
-        object-fit: cover;
-        margin: 0; /* Uklanja margine sa strane */
-        padding: 0; /* Uklanja padding sa strane */
+        object-fit: contain; /* Zadržava proporcije videa */
     }
 
-    /* Dodatna pravila za usklađivanje razmaka između elemenata */
     .feature-content {
         padding: 0.625rem 0;
-        margin: 0; /* Uklanja margine sa strane */
+        margin: 0;
     }
 
-    /* Stilovi za kontakt sekciju */
     .contact-info {
         width: 90%;
         margin: 10px auto;
@@ -158,11 +158,10 @@
         margin-right: 10px;
     }
 
-    /* Stilovi za footer */
     footer {
         flex-direction: row;
         text-align: center;
-        margin: 0; /* Uklanja margine sa strane */
+        margin: 0;
     }
 
     footer p, footer a {
@@ -170,14 +169,13 @@
         font-size: 1rem;
     }
 
-    /* Stilovi za About sekciju */
     #about {
-        padding: 1rem; /* Prilagođeno za mobilne uređaje */
-        margin: 0; /* Uklanja margine sa strane */
+        padding: 1rem;
+        margin: 0;
     }
 
     #about h1 {
-        font-size: 2rem; /* Prilagođeno za mobilne uređaje */
+        font-size: 2rem;
     }
 
     .card {
@@ -189,43 +187,42 @@
     #about p, #about button {
         font-size: 1rem;
         margin-bottom: 1rem;
-        margin: 0; /* Uklanja margine sa strane */
+        margin: 0;
     }
 
     #about button {
         padding: 0.5rem 1rem;
     }
 
-    /* Stilovi za Products sekciju */
     .image-grid {
         grid-template-columns: 1fr 1fr;
-        grid-gap: 0.625rem; /* Prilagođeno za mobilne uređaje */
+        grid-gap: 0.625rem;
         width: 100%;
         height: auto;
-        margin: 0; /* Uklanja margine sa strane */
+        margin: 0;
     }
 
     .grid-item img {
         height: 100%;
         width: 100%;
         object-fit: contain;
-        margin: 0; /* Uklanja margine sa strane */
-        padding: 0; /* Uklanja padding sa strane */
+        margin: 0;
+        padding: 0;
     }
 
     .slider-description .description {
-        padding: 1rem; /* Prilagođeno za mobilne uređaje */
-        margin: 0; /* Uklanja margine sa strane */
+        padding: 1rem;
+        margin: 0;
     }
 
     #call-to-action {
         margin-top: 1rem;
         height: auto;
-        margin: 0; /* Uklanja margine sa strane */
+        margin: 0;
     }
 
     footer {
         height: auto;
-        margin: 0; /* Uklanja margine sa strane */
+        margin: 0;
     }
 }

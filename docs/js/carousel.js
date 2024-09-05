@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const isTouchDevice = 'ontouchstart' in document.documentElement;
 
     let currentIndex = 0;
-    let direction = 1;
+    let autoSlideInterval;
 
     try {
         const response = await fetch('images.json');
@@ -29,13 +29,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             indicator.addEventListener('click', () => {
                 currentIndex = index;
                 updateCarousel();
+                resetAutoSlide(); // Resetovanje automatskog slajdera na klik indikatora
             });
             indicators.appendChild(indicator);
         });
 
         const slides = document.querySelectorAll('.slider-item');
-        const prevBtn = document.querySelector('.prev');
-        const nextBtn = document.querySelector('.next');
 
         function updateCarousel() {
             sliderContainer.style.transform = `translateX(-${currentIndex * 100}vw)`;
@@ -45,46 +44,37 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         function showNextSlide() {
-            if (direction === 1) {
-                if (currentIndex === slides.length - 1) {
-                    direction = -1;
-                } else {
-                    currentIndex += 1;
-                }
-            } else {
-                if (currentIndex === 0) {
-                    direction = 1;
-                } else {
-                    currentIndex -= 1;
-                }
-            }
+            currentIndex = (currentIndex + 1) % slides.length;
             updateCarousel();
         }
 
         function showPrevSlide() {
-            if (direction === -1) {
-                if (currentIndex === 0) {
-                    direction = 1;
-                } else {
-                    currentIndex -= 1;
-                }
-            } else {
-                if (currentIndex === slides.length - 1) {
-                    direction = -1;
-                } else {
-                    currentIndex += 1;
-                }
-            }
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
             updateCarousel();
+        }
+
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(showNextSlide, 3000);
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
         }
 
         if (!isTouchDevice) {
             // Automatsko skrolovanje
-            setInterval(showNextSlide, 3000);
+            startAutoSlide();
 
             // Manuelno skrolovanje
-            nextBtn.addEventListener('click', showNextSlide);
-            prevBtn.addEventListener('click', showPrevSlide);
+            document.querySelector('.next').addEventListener('click', () => {
+                showNextSlide();
+                resetAutoSlide();
+            });
+            document.querySelector('.prev').addEventListener('click', () => {
+                showPrevSlide();
+                resetAutoSlide();
+            });
         } else {
             // Dodavanje prevlačenja (swipe) za touchscreen uređaje
             let touchStartX = 0;
@@ -97,6 +87,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             sliderContainer.addEventListener('touchend', (e) => {
                 touchEndX = e.changedTouches[0].screenX;
                 handleGesture();
+                resetAutoSlide(); // Resetovanje automatskog slajdera na swipe
             });
 
             function handleGesture() {
@@ -111,6 +102,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Inicijalno ažuriranje carousel-a
         updateCarousel();
+
+        // Automatsko pokretanje videa (ako postoji video u slideru)
+        const videoElements = document.querySelectorAll('.process-video video');
+        videoElements.forEach(video => {
+            video.play();
+        });
 
     } catch (error) {
         console.error("Greska prilikom učitavanja JSON podataka: ", error);
