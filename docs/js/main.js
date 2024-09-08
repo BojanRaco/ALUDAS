@@ -117,23 +117,26 @@ function initializeHeroContent() {
 
 function setupVideoAutoPlay() {
     const video = document.querySelector(".process-video video");
-    let videoPlayedOnce = false;
 
-    function checkVideoVisibility() {
-        const rect = video.getBoundingClientRect();
-        if (!videoPlayedOnce && rect.top >= 0 && rect.bottom <= window.innerHeight) {
-            video.play();
-            videoPlayedOnce = true;
-        }
+    if ('IntersectionObserver' in window) {
+        let options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5 // Video će se pokrenuti kada 50% bude vidljivo
+        };
+
+        let observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+        }, options);
+
+        observer.observe(video);
     }
-
-    window.addEventListener('scroll', checkVideoVisibility);
-    window.addEventListener('resize', checkVideoVisibility);
-    checkVideoVisibility();
-
-    video.addEventListener('ended', function() {
-        showNewHeroContent(); // Prikazuje novi hero content
-    });
 }
 
 function setupLoginForm() {
@@ -212,7 +215,7 @@ document.addEventListener("DOMContentLoaded", function() {
         event.preventDefault();
 
         // Pokušaj otvaranja Viber aplikacije
-        const viberAppUrl = 'viber://chat?number=+381644424971';
+        const viberAppUrl = 'viber://add?number=381644424971';
         const fallbackUrl = 'https://play.google.com/store/apps/details?id=com.viber.voip'; // Link za Google Play ili App Store
 
         // Kreiraj nevidljivi iframe koji će pokušati da otvori aplikaciju
