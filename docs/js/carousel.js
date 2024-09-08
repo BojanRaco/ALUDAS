@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         function startAutoSlide() {
-            autoSlideInterval = setInterval(showNextSlide, 3000);
+            autoSlideInterval = setInterval(showNextSlide, 3000); // Slajder se automatski menja na svakih 3 sekunde
         }
 
         function resetAutoSlide() {
@@ -62,11 +62,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             startAutoSlide();
         }
 
+        // Provera da li je uređaj touch-based
         if (!isTouchDevice) {
-            // Automatsko skrolovanje
             startAutoSlide();
 
-            // Manuelno skrolovanje
+            // Manuelno skrolovanje za ne-touch uređaje
             document.querySelector('.next').addEventListener('click', () => {
                 showNextSlide();
                 resetAutoSlide();
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 resetAutoSlide();
             });
         } else {
-            // Dodavanje prevlačenja (swipe) za touchscreen uređaje
+            // Dodavanje swipe funkcionalnosti za touch uređaje
             let touchStartX = 0;
             let touchEndX = 0;
 
@@ -98,16 +98,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                     showPrevSlide();
                 }
             }
+
+            // Automatski pokreni slider na touch uređajima
+            startAutoSlide();
         }
 
-        // Inicijalno ažuriranje carousel-a
         updateCarousel();
-
-        // Automatsko pokretanje videa (ako postoji video u slideru)
-        const videoElements = document.querySelectorAll('.process-video video');
-        videoElements.forEach(video => {
-            video.play();
-        });
 
     } catch (error) {
         console.error("Greska prilikom učitavanja JSON podataka: ", error);

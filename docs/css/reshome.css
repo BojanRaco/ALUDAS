@@ -231,6 +231,23 @@
     }
 }
 
+/* Landscape mod za mobilne uređaje */
+@media only screen and (max-width: 1024px) and (orientation: landscape) {
+    .process-video {
+        width: 100%;
+        height: 100vh; /* Video zauzima celu visinu ekrana */
+        max-height: 100vh;
+        overflow: hidden;
+    }
+
+    .process-video video {
+        width: 100%;
+        height: 100vh; /* Podesi da video zauzme visinu ekrana */
+        object-fit: cover; /* Video se prilagođava */
+        border-radius: 0;
+    }
+}
+
 /* Stilovi za login formu na mobilnim uređajima */
 #loginForm {
     display: none;
