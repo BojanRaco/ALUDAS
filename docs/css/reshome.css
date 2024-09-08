@@ -9,6 +9,10 @@
         padding: 0;
     }
 
+    header {
+        margin-bottom: 1.5rem; /* Dodavanje razmaka između header i hero sekcije */
+    }
+
     .hero-content, .feature-content, .process-video, .slider-description {
         display: flex;
         flex-direction: column;
@@ -225,4 +229,41 @@
         height: auto;
         margin: 0;
     }
+}
+
+/* Stilovi za login formu na mobilnim uređajima */
+#loginForm {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0; /* Postavi na vrh stranice */
+    right: 0;
+    height: 30vw; /* Srazmerna visina forme */
+    width: 80vw; /* Srazmerna širina forme */
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 2vw; /* Zaobljeni uglovi */
+    z-index: 1000;
+}
+
+#loginForm input {
+    margin: 0.625rem 0; /* 10px 0 */
+    padding: 0.625rem; /* 10px */
+    width: 80%;
+    border-radius: 1vw; /* Zaobljeni uglovi input polja */
+}
+
+#closeForm {
+    position: absolute;
+    top: 0.3125rem; /* 5px */
+    right: 0.3125rem; /* 5px */
+    font-size: 1.5em;
+    cursor: pointer;
+    color: white;
+}
+
+#loginError {
+    color: red;
+    margin-top: 0.625rem; /* 10px */
 }

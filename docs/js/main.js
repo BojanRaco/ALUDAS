@@ -3,10 +3,10 @@ document.addEventListener("DOMContentLoaded", function() {
     setupSmoothScrolling();
     showWelcomeMessage();
     loadIndexImages();
-    initializeHeroContent();
+    initializeHeroContent(); // Inicijalizacija hero content sekcije
     setupVideoAutoPlay();
     setupLoginForm();
-    loadBackgroundImages(); // Dodaj ovu liniju za dinamičko učitavanje pozadinskih slika
+    loadBackgroundImages(); // Dinamičko učitavanje pozadinskih slika
 });
 
 function highlightActiveLink() {
@@ -94,13 +94,25 @@ function initializeSlider() {
 
 function initializeHeroContent() {
     const heroContent = document.querySelector('.hero-content');
+    const closeButton = document.createElement('button'); // Dugme za zatvaranje
+    closeButton.textContent = '×'; // "X" simbol
+    closeButton.style.position = 'absolute';
+    closeButton.style.top = '0.5rem'; // 0.5 rem vrednost
+    closeButton.style.right = '0.5rem'; // 0.5 rem vrednost
+    closeButton.style.fontSize = '2rem'; // Font veličina u rem
+    closeButton.style.background = 'none';
+    closeButton.style.border = 'none';
+    closeButton.style.cursor = 'pointer';
+    closeButton.style.color = '#fff'; // Bela boja za "X"
+    heroContent.appendChild(closeButton);
 
-    setInterval(() => {
-        heroContent.style.display = 'block';
-        setTimeout(() => {
-            heroContent.style.display = 'none';
-        }, 3000); // Nestaje nakon 3 sekunde
-    }, 6000); // Pojavljuje se nakon svakih 6 sekundi
+    // Prikaz hero content sekcije jednom
+    heroContent.style.display = 'block';
+
+    // Funkcija za zatvaranje hero content sekcije
+    closeButton.addEventListener('click', () => {
+        heroContent.style.display = 'none';
+    });
 }
 
 function setupVideoAutoPlay() {
@@ -122,18 +134,6 @@ function setupVideoAutoPlay() {
     video.addEventListener('ended', function() {
         showNewHeroContent(); // Prikazuje novi hero content
     });
-}
-
-function showNewHeroContent() {
-    const heroContent = document.querySelector('.hero-content');
-    if (heroContent) {
-        heroContent.innerHTML = `
-            <h1>Pogledajte našu ponudu</h1>
-            <button onclick="location.href='products.html'">Saznajte više</button>
-        `;
-        heroContent.classList.add('over-video');
-        heroContent.style.display = 'flex';
-    }
 }
 
 function setupLoginForm() {
