@@ -3,10 +3,9 @@ document.addEventListener("DOMContentLoaded", function() {
     setupSmoothScrolling();
     showWelcomeMessage();
     loadIndexImages();
-    initializeHeroContent(); // Inicijalizacija hero content sekcije
-    setupVideoAutoPlay();
+    initializeHeroContent(); 
     setupLoginForm();
-    loadBackgroundImages(); // Dinamičko učitavanje pozadinskih slika
+    loadBackgroundImages(); 
 });
 
 function highlightActiveLink() {
@@ -115,30 +114,6 @@ function initializeHeroContent() {
     });
 }
 
-function setupVideoAutoPlay() {
-    const video = document.querySelector(".process-video video");
-
-    if ('IntersectionObserver' in window) {
-        let options = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.5 // Video će se pokrenuti kada 50% bude vidljivo
-        };
-
-        let observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    video.play();
-                } else {
-                    video.pause();
-                }
-            });
-        }, options);
-
-        observer.observe(video);
-    }
-}
-
 function setupLoginForm() {
     const logo = document.getElementById('logo');
     const loginForm = document.getElementById('loginForm');
@@ -205,34 +180,3 @@ function loadBackgroundImages() {
         })
         .catch(error => console.error('Error loading background images:', error));
 }
-
-// Skripta za otvaranje Viber aplikacije ili preusmeravanje na prodavnicu aplikacija
-document.addEventListener("DOMContentLoaded", function() {
-    // Dodaj event listener za Viber link
-    const viberLink = document.querySelector('a.viber-link');
-
-    viberLink.addEventListener('click', function(event) {
-        event.preventDefault();
-
-        // Pokušaj otvaranja Viber aplikacije
-        const viberAppUrl = 'viber://add?number=381644424971';
-        const fallbackUrl = 'https://play.google.com/store/apps/details?id=com.viber.voip'; // Link za Google Play ili App Store
-
-        // Kreiraj nevidljivi iframe koji će pokušati da otvori aplikaciju
-        const iframe = document.createElement('iframe');
-        iframe.style.display = 'none';
-        iframe.src = viberAppUrl;
-
-        document.body.appendChild(iframe);
-
-        // Ako aplikacija nije instalirana, preusmeri korisnika na fallback URL
-        setTimeout(function() {
-            window.location.href = fallbackUrl;
-        }, 1500); // Ako aplikacija nije otvorena u roku od 1.5 sekunde, preusmeravanje na Play Store ili App Store
-
-        // Ukloni iframe nakon pokušaja
-        setTimeout(function() {
-            document.body.removeChild(iframe);
-        }, 2000);
-    });
-});
