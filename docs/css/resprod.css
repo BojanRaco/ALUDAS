@@ -4,41 +4,15 @@
 @media only screen and (max-width: 768px) {
     .slider-container {
         background-color: white; /* Postavlja se bela pozadina */
-        flex-direction: column;
-        height: auto;
-        padding: 1rem; /* Povećano za bolje margine */
-    }
-
-    .slider-section.active {
-        flex-direction: column;
-        align-items: center;
-        height: auto;
-    }
-
-    .slider-picture {
-        width: 100%;
-        height: auto;
-    }
-
-    .slider-description {
-        width: 100%;
-        height: auto;
-        order: 2;
-        padding: 1rem;
     }
 
     .slider-nav {
-        width: 100%;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .slider-nav.prev, .slider-nav.next {
-        width: auto;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        padding: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
     }
 
     .slider-nav.prev {
@@ -51,37 +25,15 @@
 
     .slider-nav button {
         font-size: 1.5rem;
-        background-color: #333; /* Dodaje se kontrastna boja za navigaciju */
+        background-color: #333; /* Kontrastna boja za navigaciju */
         color: white;
         border: none;
         padding: 0.75rem;
         border-radius: 50%;
     }
 
-    .image-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-top: 1rem;
+    .slider-description {
+        background-color: white; /* Bela pozadina za opis slajdera */
+        color: #333;
     }
-
-    .grid-item img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        border-radius: 0.5rem;
-    }
-}
-
-/* Dodavanje pravila za touchscreen uređaje */
-@media (pointer: coarse) {
-    .slider-nav.prev, .slider-nav.next {
-        display: flex;
-    }
-}
-
-/* Prilagođavanje slider description pozicije */
-.slider-description {
-    background-color: white;
-    color: #333;
-    text-align: center;
 }
