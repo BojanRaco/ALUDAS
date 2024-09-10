@@ -3,7 +3,8 @@
 /* Pravila za uređaje sa ekranima manjim od 10.1 inča (768px) */
 @media only screen and (max-width: 768px) {
     .slider-container {
-        background-color: white; /* Postavlja se bela pozadina */
+        background-color: white !important; /* Postavlja se bela pozadina */
+        flex-direction: column;
     }
 
     .slider-nav {
@@ -13,6 +14,7 @@
         display: flex;
         justify-content: space-between;
         width: 100%;
+        z-index: 1000; /* Osigurava da su dugmići iznad */
     }
 
     .slider-nav.prev {
@@ -25,15 +27,44 @@
 
     .slider-nav button {
         font-size: 1.5rem;
-        background-color: #333; /* Kontrastna boja za navigaciju */
-        color: white;
+        background-color: #333 !important; /* Kontrastna boja za navigaciju */
+        color: white !important;
         border: none;
         padding: 0.75rem;
         border-radius: 50%;
     }
 
     .slider-description {
-        background-color: white; /* Bela pozadina za opis slajdera */
+        background-color: white !important; /* Bela pozadina za opis slajdera */
         color: #333;
+    }
+}
+
+/* Pravila za landscape mod na mobilnim uređajima */
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+    .slider-container {
+        display: flex;
+        flex-direction: row; /* Podešava slajdere u red u landscape modu */
+        height: 100vh; /* Podešava visinu na visinu ekrana */
+    }
+
+    .slider-picture {
+        width: 60%;
+    }
+
+    .slider-description {
+        width: 40%;
+        height: 100%; /* Postavlja visinu opisnog dela da bude ista kao visina slider-container */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Centriranje sadržaja */
+        box-sizing: border-box;
+    }
+
+    .slider-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1000;
     }
 }
