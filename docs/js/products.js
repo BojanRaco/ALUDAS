@@ -141,75 +141,77 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Funkcija za navigaciju između slika
+    function addImageNavigation(expandedImage, gridItems, expandedImageIndex) {
+        const img = expandedImage.querySelector('img');
+        
+        const prevBtn = document.createElement('div');
+        prevBtn.classList.add('nav-btn', 'prev-btn');
+        prevBtn.innerHTML = '&#10094;';
+        prevBtn.style.position = 'absolute';
+        prevBtn.style.top = '50%';
+        prevBtn.style.left = '10px';
+        prevBtn.style.color = '#fff';
+        prevBtn.style.fontSize = '24px';
+        prevBtn.style.cursor = 'pointer';
+        prevBtn.style.transform = 'translateY(-50%)';
+        
+        const nextBtn = document.createElement('div');
+        nextBtn.classList.add('nav-btn', 'next-btn');
+        nextBtn.innerHTML = '&#10095;';
+        nextBtn.style.position = 'absolute';
+        nextBtn.style.top = '50%';
+        nextBtn.style.right = '10px';
+        nextBtn.style.color = '#fff';
+        nextBtn.style.fontSize = '24px';
+        nextBtn.style.cursor = 'pointer';
+        nextBtn.style.transform = 'translateY(-50%)';
+
+        expandedImage.appendChild(prevBtn);
+        expandedImage.appendChild(nextBtn);
+
+        prevBtn.addEventListener('click', () => {
+            expandedImageIndex = (expandedImageIndex - 1 + gridItems.length) % gridItems.length;
+            const prevImg = gridItems[expandedImageIndex];
+            img.src = prevImg.src;
+            img.alt = prevImg.alt;
+        });
+
+        nextBtn.addEventListener('click', () => {
+            expandedImageIndex = (expandedImageIndex + 1) % gridItems.length;
+            const nextImg = gridItems[expandedImageIndex];
+            img.src = nextImg.src;
+            img.alt = nextImg.alt;
+        });
+    }
+
+    // Funkcija za podršku prevlačenja prstom
+    function addSwipeSupport(sliderElement) {
+        let startX = 0;
+        let endX = 0;
+
+        sliderElement.addEventListener('touchstart', (e) => {
+            startX = e.changedTouches[0].screenX;
+        });
+
+        sliderElement.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].screenX;
+            if (startX > endX + 50) {
+                // Swipe left
+                plusSlides(1);
+            } else if (startX < endX - 50) {
+                // Swipe right
+                plusSlides(-1);
+            }
+        });
+    }
+
+    // Aktiviraj swipe podršku za svaki slider
+    const sliders = document.querySelectorAll('.slider-section');
+    sliders.forEach(slider => {
+        addSwipeSupport(slider);
+    });
+
     // Initialize the first slide
     setSlide(0);
 });
-
-// Funkcija za navigaciju između slika
-function addImageNavigation(expandedImage, gridItems, expandedImageIndex) {
-    const img = expandedImage.querySelector('img');
-    
-    const prevBtn = document.createElement('div');
-    prevBtn.classList.add('nav-btn', 'prev-btn');
-    prevBtn.innerHTML = '&#10094;';
-    prevBtn.style.position = 'absolute';
-    prevBtn.style.top = '50%';
-    prevBtn.style.left = '10px';
-    prevBtn.style.color = '#fff';
-    prevBtn.style.fontSize = '24px';
-    prevBtn.style.cursor = 'pointer';
-    prevBtn.style.transform = 'translateY(-50%)';
-    
-    const nextBtn = document.createElement('div');
-    nextBtn.classList.add('nav-btn', 'next-btn');
-    nextBtn.innerHTML = '&#10095;';
-    nextBtn.style.position = 'absolute';
-    nextBtn.style.top = '50%';
-    nextBtn.style.right = '10px';
-    nextBtn.style.color = '#fff';
-    nextBtn.style.fontSize = '24px';
-    nextBtn.style.cursor = 'pointer';
-    nextBtn.style.transform = 'translateY(-50%)';
-
-    expandedImage.appendChild(prevBtn);
-    expandedImage.appendChild(nextBtn);
-
-    prevBtn.addEventListener('click', () => {
-        expandedImageIndex = (expandedImageIndex - 1 + gridItems.length) % gridItems.length;
-        const prevImg = gridItems[expandedImageIndex];
-        img.src = prevImg.src;
-        img.alt = prevImg.alt;
-    });
-
-    nextBtn.addEventListener('click', () => {
-        expandedImageIndex = (expandedImageIndex + 1) % gridItems.length;
-        const nextImg = gridItems[expandedImageIndex];
-        img.src = nextImg.src;
-        img.alt = nextImg.alt;
-    });
-}
-
-// Funkcija za podršku prevlačenja prstom
-function addSwipeSupport(expandedImage, gridItems, expandedImageIndex) {
-    let startX = 0;
-    let endX = 0;
-
-    expandedImage.addEventListener('touchstart', (e) => {
-        startX = e.changedTouches[0].screenX;
-    });
-
-    expandedImage.addEventListener('touchend', (e) => {
-        endX = e.changedTouches[0].screenX;
-        if (startX > endX + 50) {
-            // Swipe left
-            expandedImageIndex = (expandedImageIndex + 1) % gridItems.length;
-        } else if (startX < endX - 50) {
-            // Swipe right
-            expandedImageIndex = (expandedImageIndex - 1 + gridItems.length) % gridItems.length;
-        }
-        const img = expandedImage.querySelector('img');
-        const newImg = gridItems[expandedImageIndex];
-        img.src = newImg.src;
-        img.alt = newImg.alt;
-    });
-}

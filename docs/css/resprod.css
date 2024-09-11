@@ -68,3 +68,39 @@
         z-index: 1000;
     }
 }
+
+/* Centriranje uvećane slike */
+.expanded-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+.expanded-image img {
+    max-width: 90%;
+    max-height: 90%;
+    margin: auto;
+    display: block;
+}
+
+/* Uklanjanje tamnih rubova oko slika u gridu */
+.grid-item {
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: transparent !important; /* Uklanja tamne rubove */
+}
+
+.grid-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.625rem; /* Zaobljenje ivica slika */
+}
