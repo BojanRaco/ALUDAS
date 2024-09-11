@@ -104,3 +104,10 @@
     object-fit: cover;
     border-radius: 0.625rem; /* Zaobljenje ivica slika */
 }
+
+/* Dodate pravila za uklanjanje tamne pozadine u slider-container i slider-picture */
+.slider-container,
+.slider-picture,
+.image-grid {
+    background-color: transparent !important;
+}
