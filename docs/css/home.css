@@ -18,7 +18,7 @@ body {
 header {
     background-color: #013f50;
     color: #fff;
-    padding: 0.5rem 1.25rem; /* 8px 20px */
+    padding: 0.5rem 1.25rem;
     text-align: center;
     margin: 0;
     border: 0;
@@ -31,19 +31,19 @@ header, main, footer {
 .logo {
     height: auto;
     width: 100%;
-    max-width: 6.25rem; /* 100px */
+    max-width: 6.25rem;
     border-radius: 20%;
 }
 
 nav ul {
     list-style: none;
-    padding: 0.625rem; /* 10px */
+    padding: 0.625rem;
     margin: 0;
 }
 
 nav ul li {
     display: inline;
-    margin-right: 0.625rem; /* 10px */
+    margin-right: 0.625rem;
 }
 
 nav ul li a {
@@ -106,13 +106,13 @@ main {
     background-color: rgba(0, 0, 0, 0.5);
     border: none;
     color: white;
-    font-size: 1.5rem; /* 24px */
+    font-size: 1.5rem;
     cursor: pointer;
 }
 
 .slider-indicators {
     position: absolute;
-    bottom: 0.625rem; /* 10px */
+    bottom: 0.625rem;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -122,9 +122,9 @@ main {
 .slider-indicators .indicator {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 50%;
-    width: 0.625rem; /* 10px */
-    height: 0.625rem; /* 10px */
-    margin: 0 0.3125rem; /* 5px */
+    width: 0.625rem;
+    height: 0.625rem;
+    margin: 0 0.3125rem;
     cursor: pointer;
 }
 
@@ -138,7 +138,7 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 1.25rem; /* 20px */
+    padding: 1.25rem;
     border-radius: 2em;
     color: white;
     text-align: center;
@@ -147,18 +147,18 @@ main {
 
 .hero-content h1 {
     font-size: 2.5em;
-    margin-bottom: 0.625rem; /* 10px */
+    margin-bottom: 0.625rem;
 }
 
 .hero-content p {
     font-size: 1.2em;
-    margin-bottom: 1.25rem; /* 20px */
+    margin-bottom: 1.25rem;
 }
 
 .hero-content button {
     background-color: #024959;
     color: white;
-    padding: 0.625rem 1.25rem; /* 10px 20px */
+    padding: 0.625rem 1.25rem;
     border: none;
     cursor: pointer;
     font-size: 1em;
@@ -173,7 +173,7 @@ main {
     display: grid;
     grid-template-columns: 25% 75%;
     width: 100%;
-    min-height: 25rem; /* 400px */
+    min-height: 25rem;
     margin: 1em;
     padding: 0;
     align-items: stretch;
@@ -199,7 +199,7 @@ main {
 }
 
 .feature {
-    max-width: 18.75rem; /* 300px */
+    max-width: 18.75rem;
     margin: 0;
     padding: 0;
     text-align: center;
@@ -218,8 +218,8 @@ main {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 25rem; /* 400px */
-    padding: 1.25rem; /* 20px */
+    height: 25rem;
+    padding: 1.25rem;
     box-sizing: border-box;
 }
 
@@ -234,7 +234,7 @@ main {
     background-color: #013f50;
     color: #fff;
     text-align: center;
-    padding: 1.25rem; /* 20px */
+    padding: 1.25rem;
     margin: 0;
     border-top-left-radius: 2em;
     border-top-right-radius: 2em;
@@ -248,7 +248,7 @@ main {
 #call-to-action button {
     background-color: #024959;
     color: white;
-    padding: 0.625rem 1.25rem; /* 10px 20px */
+    padding: 0.625rem 1.25rem;
     border: none;
     cursor: pointer;
     font-size: 1em;
@@ -263,7 +263,7 @@ footer {
     background-color: #013f50;
     color: #fff;
     text-align: center;
-    padding: 0.625rem 0; /* 10px 0 */
+    padding: 0.625rem 0;
     margin: 0;
     border: 0;
     border-top-left-radius: 0;
@@ -278,7 +278,7 @@ footer p {
 footer a {
     color: #fff;
     text-decoration: none;
-    margin: 0 0.625rem; /* 10px */
+    margin: 0 0.625rem;
     font-size: 1.5em;
 }
 
@@ -287,7 +287,7 @@ footer a:hover {
 }
 
 footer i {
-    margin: 0 0.3125rem; /* 5px */
+    margin: 0 0.3125rem;
     padding: 0;
 }
 
@@ -296,31 +296,31 @@ footer i {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    top: 0; /* Postavi na vrh stranice */
+    position: absolute;
+    top: 0;
     right: 0;
-    height: 7.5vw; /* Postavi visinu forme */
-    width: 20vw; /* Širina forme */
+    height: 12rem; /* Postavi visinu na visinu header-a */
+    width: 24rem; /* Postavi širinu na 30% */
     background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 2vw; /* Zaobljeni uglovi */
+    border-radius: 2rem;
     z-index: 1000;
 }
 
 #loginForm input {
-    margin: 0.625rem 0; /* 10px 0 */
-    padding: 0.625rem; /* 10px */
+    margin: 0.625rem 0;
+    padding: 0.625rem;
     width: 80%;
-    border-radius: 1vw; /* Zaobljeni uglovi input polja */
+    border-radius: 1rem;
 }
 
 #loginForm button {
-    display: none; /* Sakriveno dugme jer koristimo Enter za slanje forme */
+    display: none;
 }
 
 #closeForm {
     position: absolute;
-    top: 0.3125rem; /* 5px */
-    right: 0.3125rem; /* 5px */
+    top: 0.3125rem;
+    right: 0.3125rem;
     font-size: 1.5em;
     cursor: pointer;
     color: white;
@@ -328,16 +328,16 @@ footer i {
 
 #loginError {
     color: red;
-    margin-top: 0.625rem; /* 10px */
+    margin-top: 0.625rem;
 }
 
 @media (min-width: 768px) {
     .logo {
-        max-width: 12.5rem; /* 200px */
+        max-width: 12.5rem;
     }
 
     nav ul {
-        padding: 1.25rem; /* 20px */
+        padding: 1.25rem;
     }
 }
 

@@ -44,21 +44,31 @@
 @media only screen and (max-width: 768px) and (orientation: landscape) {
     .slider-container {
         display: flex;
-        flex-direction: row; /* Podešava slajdere u red u landscape modu */
-        height: 100vh; /* Podešava visinu na visinu ekrana */
+        flex-direction: row; /* Slajderi su postavljeni u red u landscape modu */
+        height: 100vh; /* Visina postavljena na visinu ekrana */
+        overflow: hidden; /* Sprečava prelivanje sadržaja */
     }
 
     .slider-picture {
         width: 60%;
+        height: 100%; /* Osigurava da slider-picture pokrije celu visinu */
     }
 
     .slider-description {
         width: 40%;
-        height: 100%; /* Postavlja visinu opisnog dela da bude ista kao visina slider-container */
+        height: 100%; /* Postavlja visinu da bude ista kao visina slider-container */
         display: flex;
         flex-direction: column;
         justify-content: center; /* Centriranje sadržaja */
+        padding: 1rem;
         box-sizing: border-box;
+        overflow-y: auto; /* Dodajemo automatsko skrolovanje ako ima previše sadržaja */
+    }
+
+    .slider-description p {
+        margin: 0;
+        padding: 0;
+        overflow: auto; /* Sprečava prelivanje teksta */
     }
 
     .slider-nav {

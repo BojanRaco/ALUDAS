@@ -1,6 +1,6 @@
 /* reshome.css */
 
-/* Pravila za uređaje sa širinom ekrana do 1024px */
+/* Pravila za mobilne uređaje sa širinom ekrana do 1024px */
 @media only screen and (max-width: 1024px) {
     body {
         font-size: 1rem;
@@ -10,7 +10,7 @@
     }
 
     header {
-        margin-bottom: 1.5rem; /* Dodavanje razmaka između header i hero sekcije */
+        margin-bottom: 1.5rem; /* Razmak između header i hero sekcije */
     }
 
     .hero-content, .feature-content, .process-video, .slider-description {
@@ -27,20 +27,20 @@
         height: auto;
         overflow: hidden;
         border-radius: 1rem;
-        margin: 0; /* Uklanja margine sa strane */
-        background-color: #333; /* Tamna pozadina */
+        margin: 0;
+        background-color: #333;
     }
 
     .slider-container {
         display: flex;
         width: 100%;
-        height: 100%; /* Visina slidera automatski se prilagođava sadržaju */
+        height: 100%;
         align-items: center;
-        justify-content: flex-start; /* Početak slidera prikazuje prvu sliku u celosti */
+        justify-content: flex-start;
         transition: transform 0.5s ease;
         margin: 0;
         padding: 0;
-        background-color: transparent; /* Uklanja tamnu pozadinu za slider container */
+        background-color: transparent;
     }
 
     .slider-item {
@@ -49,26 +49,25 @@
         height: 100%;
         object-fit: contain;
         aspect-ratio: 16/9;
-        background-color: #333; /* Tamna pozadina sa strane za manje slike */
+        background-color: #333;
         margin: 0;
         padding: 0;
     }
 
-    .slider-indicators,
-    .slider-nav {
+    .slider-indicators, .slider-nav {
         display: none;
     }
 
     .hero-content {
         position: absolute;
-        top: 10%; /* Pomeri hero content na 10% visine slidera */
+        top: 10%;
         left: 50%;
-        transform: translate(-50%, 0); /* Centriraj hero content horizontalno */
-        width: 80%; /* Ograničena širina hero content */
+        transform: translate(-50%, 0);
+        width: 80%;
         padding: 1rem;
         text-align: center;
-        background-color: rgba(0, 0, 0, 0.5); /* Transparentna pozadina */
-        border-radius: 1rem; /* Zaobljeni uglovi */
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 1rem;
         z-index: 1000;
         margin: 0;
     }
@@ -113,7 +112,6 @@
 
     .feature-content .feature {
         margin-bottom: 0.625rem;
-        margin: 0;
     }
 
     .feature-content img {
@@ -121,8 +119,6 @@
         border-radius: 1rem;
         width: 100%;
         object-fit: contain;
-        margin: 0;
-        padding: 0;
     }
 
     #production-process {
@@ -135,16 +131,15 @@
         position: relative;
         overflow: hidden;
         width: 100%;
-        max-height: calc(100vh - 10rem); /* Ograničava visinu videa */
+        max-height: calc(100vh - 10rem);
         margin: 0;
-        padding: 0;
     }
 
     .process-video video {
         width: 100%;
         height: auto;
         border-radius: 1rem;
-        object-fit: contain; /* Zadržava proporcije videa */
+        object-fit: contain;
     }
 
     .feature-content {
@@ -192,7 +187,6 @@
     #about p, #about button {
         font-size: 1rem;
         margin-bottom: 1rem;
-        margin: 0;
     }
 
     #about button {
@@ -211,8 +205,6 @@
         height: 100%;
         width: 100%;
         object-fit: contain;
-        margin: 0;
-        padding: 0;
     }
 
     .slider-description .description {
@@ -223,7 +215,6 @@
     #call-to-action {
         margin-top: 1rem;
         height: auto;
-        margin: 0;
     }
 
     footer {
@@ -232,56 +223,82 @@
     }
 }
 
-/* Landscape mod za mobilne uređaje */
-@media only screen and (max-width: 1024px) and (orientation: landscape) {
-    .process-video {
-        width: 100%;
-        height: 100vh; /* Video zauzima celu visinu ekrana */
-        max-height: 100vh;
-        overflow: hidden;
-    }
-
-    .process-video video {
-        width: 100%;
-        height: 100vh; /* Podesi da video zauzme visinu ekrana */
-        object-fit: cover; /* Video se prilagođava */
-        border-radius: 0;
-    }
-}
-
-/* Stilovi za login formu na mobilnim uređajima */
+/* Pravila za login formu na mobilnim uređajima */
 #loginForm {
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: fixed;
-    top: 0; /* Postavi na vrh stranice */
+    top: 0;
     right: 0;
-    height: 30vw; /* Srazmerna visina forme */
-    width: 80vw; /* Srazmerna širina forme */
+    height: 30vw;
+    width: 80vw;
     background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 2vw; /* Zaobljeni uglovi */
+    border-radius: 2vw;
     z-index: 1000;
 }
 
 #loginForm input {
-    margin: 0.625rem 0; /* 10px 0 */
-    padding: 0.625rem; /* 10px */
+    margin: 0.625rem 0;
+    padding: 0.625rem;
     width: 80%;
-    border-radius: 1vw; /* Zaobljeni uglovi input polja */
+    border-radius: 1vw;
 }
 
 #closeForm {
     position: absolute;
-    top: 0.3125rem; /* 5px */
-    right: 0.3125rem; /* 5px */
+    top: 0.3125rem;
+    right: 0.3125rem;
     font-size: 1.5em;
     cursor: pointer;
     color: white;
 }
 
-#loginError {
-    color: red;
-    margin-top: 0.625rem; /* 10px */
+/* Landscape mod za mobilne uređaje */
+@media only screen and (max-width: 1024px) and (orientation: landscape) {
+    .process-video {
+        width: 100%;
+        height: 100vh;
+        max-height: 100vh;
+        overflow: hidden;
+    }
+
+    .process-video video {
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+        border-radius: 0;
+    }
+}
+
+/* Pravila za desktop uređaje */
+@media (min-width: 1024px) {
+    #loginForm {
+        height: 12rem; /* Match height of header section */
+        width: 30%;    /* Set the width to 30% of the viewport width */
+        position: absolute;
+        right: 0;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 2rem;
+        z-index: 1000;
+    }
+
+    #loginForm input {
+        margin: 0.625rem 0;
+        padding: 0.625rem;
+        width: 80%;
+        border-radius: 0.5rem;
+    }
+
+    #loginForm button {
+        display: none; /* Dugme za slanje forme se sakriva */
+    }
+}
+
+/* Pravila za ikone u footer sekciji */
+footer i {
+    font-size: 2em; /* Postavlja veličinu ikona u footer sekciji */
+    margin: 0 0.3125rem; /* Uklanjanje razlika u prikazu na različitim stranicama */
 }
