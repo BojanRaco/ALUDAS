@@ -197,8 +197,6 @@ footer {
     position: absolute;
     top: 0;
     left: 0;
-    bottom: 0;
-    right: 0;
     width: 100%;
     height: auto;
     background: rgba(0, 0, 0, 0.8);
@@ -211,18 +209,15 @@ footer {
 
 .expanded-image img {
     max-width: 90%;
-    max-height: 41rem;
+    max-height: 90%;
     border-radius: 2rem;
-    margin-left: 2.5rem;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
 }
 
-/* Univerzalno pravilo za postavljanje dugmeta "X" iznad desnog ugla slider-picture */
-.slider-picture .close-btn {
+/* Pravilo za dugme "X" */
+.expanded-image .close-btn {
     position: absolute;
-    top: -1.5rem;
-    right: -1.5rem;
+    top: 10px;
+    right: 10px;
     color: #fff;
     font-size: 1.5rem;
     background: transparent;
@@ -248,7 +243,7 @@ footer {
     right: 0.625rem;
 }
 
-/* Uklanjanje strelica za navigaciju na touchscreen uređajima */
+/* Uklanjanje strelica na touchscreen uređajima */
 @media (pointer: coarse), only screen and (max-width: 768px) {
     .slider-nav {
         display: none;
