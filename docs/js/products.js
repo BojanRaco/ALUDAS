@@ -24,10 +24,11 @@ document.addEventListener('DOMContentLoaded', function() {
             activateImagePreview();
             showSlides(slideIndex);
         })
-        .catch(error => console.error('Error loading images:', error));
+        .catch(error => console.error('Greška prilikom učitavanja slika:', error));
 
     let slideIndex = 0;
 
+    // Funkcija za prikaz slajdova
     function showSlides(n) {
         const slides = document.getElementsByClassName("slider-section");
         if (n >= slides.length) {
@@ -39,17 +40,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         for (let i = 0; i < slides.length; i++) {
             slides[i].classList.remove("active");
-            slides[i].style.display = "none"; // Ensure all slides are hidden
+            slides[i].style.display = "none"; // Sakrij sve slajdove
         }
         slides[slideIndex].style.display = "flex";
         slides[slideIndex].classList.add("active");
         showImageGrid();
     }
 
+    // Funkcija za prelazak na sledeći slajd
     function plusSlides(n) {
         showSlides(slideIndex + n);
     }
 
+    // Funkcija za prikaz image grida
     function showImageGrid() {
         const activeSlide = document.querySelector(".slider-section.active");
         if (!activeSlide) return; // Provera da li postoji aktivni slide
@@ -67,10 +70,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // Funkcija za postavljanje aktivnog slajda
     function setSlide(n) {
         showSlides(n);
     }
 
+    // Event listeneri za navigaciju između slajdova
     document.querySelectorAll(".prev").forEach(prevBtn => {
         prevBtn.addEventListener("click", () => {
             setSlide(slideIndex - 1);
@@ -132,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     imageGrid.removeChild(expandedImage);
                 });
 
-                // Dodavanje swipe podrške i onemogućavanje strelica na touchscreen uređajima
+                // Dodavanje swipe podrške na touchscreen uređajima
                 if (isTouchDevice()) {
                     addSwipeSupport(expandedImage, gridImages, expandedImageIndex);
                 } else {
@@ -143,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Funkcija za navigaciju između slika (koristi se samo za non-touchscreen uređaje)
+    // Funkcija za navigaciju između slika (samo za non-touchscreen uređaje)
     function addImageNavigation(expandedImage, gridItems, expandedImageIndex) {
         const img = expandedImage.querySelector('img');
         
@@ -201,13 +206,13 @@ document.addEventListener('DOMContentLoaded', function() {
             endX = e.changedTouches[0].screenX;
 
             if (startX > endX + 50) {
-                // Swipe left
+                // Prevlačenje levo
                 expandedImageIndex = (expandedImageIndex + 1) % gridItems.length;
                 const nextImg = gridItems[expandedImageIndex];
                 img.src = nextImg.src;
                 img.alt = nextImg.alt;
             } else if (startX < endX - 50) {
-                // Swipe right
+                // Prevlačenje desno
                 expandedImageIndex = (expandedImageIndex - 1 + gridItems.length) % gridItems.length;
                 const prevImg = gridItems[expandedImageIndex];
                 img.src = prevImg.src;
@@ -216,7 +221,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Funkcija koja proverava da li je uređaj touchscreen
+    // Funkcija za proveru da li je uređaj touchscreen
     function isTouchDevice() {
         return ('ontouchstart' in window || navigator.maxTouchPoints > 0);
     }
@@ -234,21 +239,21 @@ document.addEventListener('DOMContentLoaded', function() {
             endX = e.changedTouches[0].screenX;
 
             if (startX > endX + 50) {
-                // Swipe left to next slider section
+                // Prevlačenje levo za sledeću slider sekciju
                 plusSlides(1);
             } else if (startX < endX - 50) {
-                // Swipe right to previous slider section
+                // Prevlačenje desno za prethodnu slider sekciju
                 plusSlides(-1);
             }
         });
     }
 
-    // Apply swipe functionality to each slider section
+    // Aktiviraj swipe funkcionalnost za svaku slider sekciju
     const sliderContainers = document.querySelectorAll('.slider-container');
     sliderContainers.forEach(slider => {
         addSwipeSupportForSlider(slider);
     });
 
-    // Initialize the first slide
+    // Inicijalizuj prvi slajd
     setSlide(0);
 });
