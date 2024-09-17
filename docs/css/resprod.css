@@ -1,5 +1,3 @@
-/* resprod.css */
-
 /* Pravila za uređaje sa ekranima manjim od 10.1 inča (768px) */
 @media only screen and (max-width: 768px) {
     .slider-container {
@@ -44,38 +42,24 @@
 @media only screen and (max-width: 768px) and (orientation: landscape) {
     .slider-container {
         display: flex;
-        flex-direction: row; /* Slajderi su postavljeni u red u landscape modu */
-        height: 100vh; /* Visina postavljena na visinu ekrana */
+        flex-direction: column; /* Slider-picture i slider-description postavljeni jedan iznad drugog */
+        height: auto; /* Visina prilagođena sadržaju */
         overflow: hidden; /* Sprečava prelivanje sadržaja */
     }
 
     .slider-picture {
-        width: 60%;
-        height: 100%; /* Osigurava da slider-picture pokrije celu visinu */
+        width: 100%;
+        height: auto; /* Osigurava da slider-picture pokrije odgovarajuću visinu */
     }
 
     .slider-description {
-        width: 40%;
-        height: 100%; /* Postavlja visinu da bude ista kao visina slider-container */
+        width: 100%;
+        height: auto; /* Postavlja visinu da bude ista kao visina slider-picture */
         display: flex;
         flex-direction: column;
         justify-content: center; /* Centriranje sadržaja */
         padding: 1rem;
         box-sizing: border-box;
-        overflow-y: auto; /* Dodajemo automatsko skrolovanje ako ima previše sadržaja */
-    }
-
-    .slider-description p {
-        margin: 0;
-        padding: 0;
-        overflow: auto; /* Sprečava prelivanje teksta */
-    }
-
-    .slider-nav {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 1000;
     }
 }
 
