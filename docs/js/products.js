@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Dinamičko učitavanje slika iz images.json fajla
     fetch('images.json')
         .then(response => response.json())
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const sliderSection = document.getElementById(`slider-section-${category}`);
                 if (sliderSection) {
                     const galleryWrapper = sliderSection.querySelector('.gallery-wrapper');
-                    
+
                     data.product_images[category].forEach(image => {
                         const imgElement = document.createElement('img');
                         imgElement.src = image.src;
@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let slideIndex = 0;
 
-    // Funkcija za prikaz slajdova
     function showSlides(n) {
         const slides = document.getElementsByClassName("slider-section");
         if (n >= slides.length) {
@@ -47,12 +46,10 @@ document.addEventListener('DOMContentLoaded', function() {
         showImageGrid();
     }
 
-    // Funkcija za prelazak na sledeći slajd
     function plusSlides(n) {
         showSlides(slideIndex + n);
     }
 
-    // Funkcija za prikaz image grida
     function showImageGrid() {
         const activeSlide = document.querySelector(".slider-section.active");
         if (!activeSlide) return; // Provera da li postoji aktivni slide
@@ -70,12 +67,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Funkcija za postavljanje aktivnog slajda
     function setSlide(n) {
         showSlides(n);
     }
 
-    // Event listeneri za navigaciju između slajdova
     document.querySelectorAll(".prev").forEach(prevBtn => {
         prevBtn.addEventListener("click", () => {
             setSlide(slideIndex - 1);
@@ -125,6 +120,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 imageGrid.appendChild(expandedImage);
 
+                // Onemogući swipe za slider sekcije dok je slika uvećana
+                disableSwipeForSliderSections();
+
                 const closeBtn = expandedImage.querySelector('.close-btn');
                 closeBtn.style.position = 'absolute';
                 closeBtn.style.top = '10px';
@@ -135,9 +133,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 closeBtn.addEventListener('click', () => {
                     imageGrid.removeChild(expandedImage);
+                    enableSwipeForSliderSections(); // Ponovo omogući swipe za slider sekcije kada se zatvori slika
                 });
 
-                // Dodavanje swipe podrške na touchscreen uređajima
+                // Dodavanje swipe podrške i onemogućavanje strelica na touchscreen uređajima
                 if (isTouchDevice()) {
                     addSwipeSupport(expandedImage, gridImages, expandedImageIndex);
                 } else {
@@ -148,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Funkcija za navigaciju između slika (samo za non-touchscreen uređaje)
+    // Funkcija za navigaciju između slika (koristi se samo za non-touchscreen uređaje)
     function addImageNavigation(expandedImage, gridItems, expandedImageIndex) {
         const img = expandedImage.querySelector('img');
         
@@ -221,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Funkcija za proveru da li je uređaj touchscreen
+    // Funkcija koja proverava da li je uređaj touchscreen
     function isTouchDevice() {
         return ('ontouchstart' in window || navigator.maxTouchPoints > 0);
     }
@@ -248,10 +247,41 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Onemogući swipe za slider sekcije
+    function disableSwipeForSliderSections() {
+        sliderContainers.forEach(slider => {
+            slider.removeEventListener('touchstart', handleSwipeStart);
+            slider.removeEventListener('touchend', handleSwipeEnd);
+        });
+    }
+
+    // Omogući swipe za slider sekcije
+    function enableSwipeForSliderSections() {
+        sliderContainers.forEach(slider => {
+            slider.addEventListener('touchstart', handleSwipeStart);
+            slider.addEventListener('touchend', handleSwipeEnd);
+        });
+    }
+
+    function handleSwipeStart(e) {
+        startX = e.changedTouches[0].screenX;
+    }
+
+    function handleSwipeEnd(e) {
+        endX = e.changedTouches[0].screenX;
+
+        if (startX > endX + 50) {
+            plusSlides(1);
+        } else if (startX < endX - 50) {
+            plusSlides(-1);
+        }
+    }
+
     // Aktiviraj swipe funkcionalnost za svaku slider sekciju
     const sliderContainers = document.querySelectorAll('.slider-container');
     sliderContainers.forEach(slider => {
-        addSwipeSupportForSlider(slider);
+        slider.addEventListener('touchstart', handleSwipeStart);
+        slider.addEventListener('touchend', handleSwipeEnd);
     });
 
     // Inicijalizuj prvi slajd
