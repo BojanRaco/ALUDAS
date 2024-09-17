@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="close-btn">&times;</div>
                     </div>
                 `;
-                expandedImage.style.position = 'fixed';
+                expandedImage.style.position = 'absolute';
                 expandedImage.style.top = '0';
                 expandedImage.style.left = '0';
                 expandedImage.style.width = '100%';
@@ -220,6 +220,34 @@ document.addEventListener('DOMContentLoaded', function() {
     function isTouchDevice() {
         return ('ontouchstart' in window || navigator.maxTouchPoints > 0);
     }
+
+    // Swipe podrška za slider sekcije
+    function addSwipeSupportForSlider(sliderContainer) {
+        let startX = 0;
+        let endX = 0;
+
+        sliderContainer.addEventListener('touchstart', (e) => {
+            startX = e.changedTouches[0].screenX;
+        });
+
+        sliderContainer.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].screenX;
+
+            if (startX > endX + 50) {
+                // Swipe left to next slider section
+                plusSlides(1);
+            } else if (startX < endX - 50) {
+                // Swipe right to previous slider section
+                plusSlides(-1);
+            }
+        });
+    }
+
+    // Apply swipe functionality to each slider section
+    const sliderContainers = document.querySelectorAll('.slider-container');
+    sliderContainers.forEach(slider => {
+        addSwipeSupportForSlider(slider);
+    });
 
     // Initialize the first slide
     setSlide(0);
