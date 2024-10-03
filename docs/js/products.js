@@ -302,13 +302,13 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             sliderPictures.forEach(picture => {
-                picture.style.width = '100%';
+                picture.style.width = '100%'; // Slika zauzima 100% širine
                 picture.style.height = 'auto';
                 picture.style.marginBottom = '1rem'; // Razmak između slike i opisa
             });
 
             sliderDescriptions.forEach(description => {
-                description.style.width = '100%';
+                description.style.width = '100%'; // Opis zauzima 100% širine
                 description.style.height = 'auto';
                 description.style.display = 'flex';
                 description.style.justifyContent = 'center';
