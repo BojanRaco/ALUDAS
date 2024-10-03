@@ -315,6 +315,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 description.style.alignItems = 'center';
                 description.style.padding = '1rem';
             });
+        } else {
+            // Resetuj stilove na širim ekranima
+            sliderContainers.forEach(container => {
+                container.style.flexDirection = 'row';
+            });
+
+            sliderPictures.forEach(picture => {
+                picture.style.width = '50%';
+            });
+
+            sliderDescriptions.forEach(description => {
+                description.style.width = '50%';
+            });
         }
     }
 
