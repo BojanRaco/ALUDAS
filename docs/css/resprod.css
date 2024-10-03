@@ -106,23 +106,26 @@
     background-color: transparent !important;
 }
 
-/* Postojeća pravila u resprod.css */
-
-/* Dodaj ovo pravilo na samom kraju */
-@media only screen and (max-width: 768px) and (orientation: landscape) {
+/* Prikaz podklasa u slider-container jedna ispod druge na uređajima manjim od 10.1" */
+@media only screen and (max-width: 768px) {
     .slider-container {
-        display: flex;
-        flex-direction: column;
-        height: auto;
+        display: flex !important;
+        flex-direction: column !important; /* Vertikalni prikaz */
+        width: 100% !important;
+        height: auto !important;
     }
 
-    .slider-picture, .slider-description {
-        width: 100%;
-        height: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 1rem;
-        box-sizing: border-box;
+    .slider-container > * {
+        width: 100% !important;
+        margin-bottom: 1rem !important; /* Razmak između elemenata */
+        height: auto !important;
+    }
+
+    .slider-picture,
+    .slider-description {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 1rem !important;
     }
 }
