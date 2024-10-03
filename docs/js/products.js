@@ -287,10 +287,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // Inicijalizuj prvi slajd
     setSlide(0);
 
-    // Dodaj pravilo za ekrane manje od 10.1"
+    // Dodaj pravilo za ekrane manje od 10.1" u landscape i portrait modovima
     function applyMobileLayout() {
         const sliderContainer = document.querySelectorAll('.slider-container');
-        
+
         if (window.innerWidth <= 1024) {
             sliderContainer.forEach(container => {
                 container.style.display = 'flex';
@@ -320,7 +320,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Pozovi funkciju na učitavanje stranice
     applyMobileLayout();
 
-    // Ponovo primeni stilove prilikom promene veličine ekrana
+    // Ponovo primeni stilove prilikom promene veličine ekrana i u zavisnosti od orijentacije
     window.addEventListener('resize', applyMobileLayout);
-
+    window.addEventListener('orientationchange', applyMobileLayout);
 });
