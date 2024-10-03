@@ -273,3 +273,24 @@ footer {
         overflow: auto;
     }
 }
+
+/* Postojeća pravila u resprod.css */
+
+/* Dodaj ovo pravilo na samom kraju */
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+    .slider-container {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .slider-picture, .slider-description {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        box-sizing: border-box;
+    }
+}
