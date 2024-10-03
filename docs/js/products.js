@@ -156,9 +156,9 @@ document.addEventListener('DOMContentLoaded', function () {
         prevBtn.innerHTML = '&#10094;';
         prevBtn.style.position = 'absolute';
         prevBtn.style.top = '50%';
-        prevBtn.style.left = '10px';
+        prevBtn.style.left = '1rem';
         prevBtn.style.color = '#fff';
-        prevBtn.style.fontSize = '24px';
+        prevBtn.style.fontSize = '2rem';
         prevBtn.style.cursor = 'pointer';
         prevBtn.style.transform = 'translateY(-50%)';
         
@@ -167,9 +167,9 @@ document.addEventListener('DOMContentLoaded', function () {
         nextBtn.innerHTML = '&#10095;';
         nextBtn.style.position = 'absolute';
         nextBtn.style.top = '50%';
-        nextBtn.style.right = '10px';
+        nextBtn.style.right = '1rem';
         nextBtn.style.color = '#fff';
-        nextBtn.style.fontSize = '24px';
+        nextBtn.style.fontSize = '2rem';
         nextBtn.style.cursor = 'pointer';
         nextBtn.style.transform = 'translateY(-50%)';
 
@@ -289,24 +289,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Dodaj pravilo za ekrane manje od 10.1" u landscape i portrait modovima
     function applyMobileLayout() {
-        const sliderContainer = document.querySelectorAll('.slider-container');
+        const sliderContainers = document.querySelectorAll('.slider-container');
+        const sliderPictures = document.querySelectorAll('.slider-picture');
+        const sliderDescriptions = document.querySelectorAll('.slider-description');
 
         if (window.innerWidth <= 1024) {
-            sliderContainer.forEach(container => {
+            sliderContainers.forEach(container => {
                 container.style.display = 'flex';
                 container.style.flexDirection = 'column'; // Postavlja vertikalni prikaz
                 container.style.width = '100%';
                 container.style.height = 'auto';
             });
 
-            const sliderPicture = document.querySelectorAll('.slider-picture');
-            sliderPicture.forEach(picture => {
+            sliderPictures.forEach(picture => {
                 picture.style.width = '100%';
                 picture.style.height = 'auto';
+                picture.style.marginBottom = '1rem'; // Razmak između slike i opisa
             });
 
-            const sliderDescription = document.querySelectorAll('.slider-description');
-            sliderDescription.forEach(description => {
+            sliderDescriptions.forEach(description => {
                 description.style.width = '100%';
                 description.style.height = 'auto';
                 description.style.display = 'flex';
@@ -320,7 +321,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Pozovi funkciju na učitavanje stranice
     applyMobileLayout();
 
-    // Ponovo primeni stilove prilikom promene veličine ekrana i u zavisnosti od orijentacije
+    // Ponovo primeni stilove prilikom promene veličine ekrana i orijentacije
     window.addEventListener('resize', applyMobileLayout);
     window.addEventListener('orientationchange', applyMobileLayout);
 });
