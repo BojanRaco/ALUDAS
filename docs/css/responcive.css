@@ -266,3 +266,32 @@
         display: none;
     }
 }
+
+/* Landscape mod na uređajima manjim od 10.1" */
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+    .slider-container {
+        display: flex;
+        flex-direction: column; /* Vertikalni prikaz elemenata */
+        width: 100%;
+        height: auto;
+    }
+
+    .slider-picture {
+        order: 1; /* Prikaz slider-picture sekcije na prvom mestu */
+        width: 100%; /* Slider-picture zauzima celu širinu */
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .slider-description {
+        order: 2; /* Prikaz slider-description sekcije ispod slider-picture */
+        width: 100%; /* Slider-description takođe zauzima celu širinu */
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+    }
+}

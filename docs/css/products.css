@@ -274,26 +274,31 @@ footer {
     }
 }
 
-/* Prikaz podklasa u slider-container jedna ispod druge na uređajima manjim od 10.1" */
-@media only screen and (max-width: 768px) {
+/* Landscape mod na uređajima manjim od 10.1" */
+@media only screen and (max-width: 768px) and (orientation: landscape) {
     .slider-container {
-        display: flex !important;
-        flex-direction: column !important; /* Vertikalni prikaz */
-        width: 100% !important;
-        height: auto !important;
+        display: flex;
+        flex-direction: column; /* Vertikalni prikaz elemenata */
+        width: 100%;
+        height: auto;
     }
 
-    .slider-container > * {
-        width: 100% !important;
-        margin-bottom: 1rem !important; /* Razmak između elemenata */
-        height: auto !important;
+    .slider-picture {
+        order: 1; /* Prikaz slider-picture sekcije na prvom mestu */
+        width: 100%; /* Slider-picture zauzima celu širinu */
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    .slider-picture,
     .slider-description {
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        padding: 1rem !important;
+        order: 2; /* Prikaz slider-description sekcije ispod slider-picture */
+        width: 100%; /* Slider-description takođe zauzima celu širinu */
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
     }
 }
