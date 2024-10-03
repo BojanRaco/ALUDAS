@@ -286,4 +286,41 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Inicijalizuj prvi slajd
     setSlide(0);
+
+    // Dodaj pravilo za ekrane manje od 10.1"
+    function applyMobileLayout() {
+        const sliderContainer = document.querySelectorAll('.slider-container');
+        
+        if (window.innerWidth <= 1024) {
+            sliderContainer.forEach(container => {
+                container.style.display = 'flex';
+                container.style.flexDirection = 'column'; // Postavlja vertikalni prikaz
+                container.style.width = '100%';
+                container.style.height = 'auto';
+            });
+
+            const sliderPicture = document.querySelectorAll('.slider-picture');
+            sliderPicture.forEach(picture => {
+                picture.style.width = '100%';
+                picture.style.height = 'auto';
+            });
+
+            const sliderDescription = document.querySelectorAll('.slider-description');
+            sliderDescription.forEach(description => {
+                description.style.width = '100%';
+                description.style.height = 'auto';
+                description.style.display = 'flex';
+                description.style.justifyContent = 'center';
+                description.style.alignItems = 'center';
+                description.style.padding = '1rem';
+            });
+        }
+    }
+
+    // Pozovi funkciju na učitavanje stranice
+    applyMobileLayout();
+
+    // Ponovo primeni stilove prilikom promene veličine ekrana
+    window.addEventListener('resize', applyMobileLayout);
+
 });
