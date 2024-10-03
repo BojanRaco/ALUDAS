@@ -125,10 +125,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 const closeBtn = expandedImage.querySelector('.close-btn');
                 closeBtn.style.position = 'absolute';
-                closeBtn.style.top = '10px';
-                closeBtn.style.right = '10px';
+                closeBtn.style.top = '1rem';
+                closeBtn.style.right = '1rem';
                 closeBtn.style.color = '#fff';
-                closeBtn.style.fontSize = '24px';
+                closeBtn.style.fontSize = '2rem';
                 closeBtn.style.cursor = 'pointer';
 
                 closeBtn.addEventListener('click', () => {
